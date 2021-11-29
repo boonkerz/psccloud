@@ -1,0 +1,15 @@
+/home/thomas/projekte/PscCloud/HetznerVolumePlugin/bin/Release/net6.0/HetznerVolumePlugin.deps.json
+/home/thomas/projekte/PscCloud/HetznerVolumePlugin/bin/Release/net6.0/HetznerVolumePlugin.dll
+/home/thomas/projekte/PscCloud/HetznerVolumePlugin/bin/Release/net6.0/ref/HetznerVolumePlugin.dll
+/home/thomas/projekte/PscCloud/HetznerVolumePlugin/bin/Release/net6.0/HetznerVolumePlugin.pdb
+/home/thomas/projekte/PscCloud/HetznerVolumePlugin/bin/Release/net6.0/PluginContract.dll
+/home/thomas/projekte/PscCloud/HetznerVolumePlugin/bin/Release/net6.0/PluginContract.pdb
+/home/thomas/projekte/PscCloud/HetznerVolumePlugin/obj/Release/net6.0/HetznerVolumePlugin.csproj.AssemblyReference.cache
+/home/thomas/projekte/PscCloud/HetznerVolumePlugin/obj/Release/net6.0/HetznerVolumePlugin.GeneratedMSBuildEditorConfig.editorconfig
+/home/thomas/projekte/PscCloud/HetznerVolumePlugin/obj/Release/net6.0/HetznerVolumePlugin.AssemblyInfoInputs.cache
+/home/thomas/projekte/PscCloud/HetznerVolumePlugin/obj/Release/net6.0/HetznerVolumePlugin.AssemblyInfo.cs
+/home/thomas/projekte/PscCloud/HetznerVolumePlugin/obj/Release/net6.0/HetznerVolumePlugin.csproj.CoreCompileInputs.cache
+/home/thomas/projekte/PscCloud/HetznerVolumePlugin/obj/Release/net6.0/HetznerVolumePlugin.csproj.CopyComplete
+/home/thomas/projekte/PscCloud/HetznerVolumePlugin/obj/Release/net6.0/HetznerVolumePlugin.dll
+/home/thomas/projekte/PscCloud/HetznerVolumePlugin/obj/Release/net6.0/ref/HetznerVolumePlugin.dll
+/home/thomas/projekte/PscCloud/HetznerVolumePlugin/obj/Release/net6.0/HetznerVolumePlugin.pdb

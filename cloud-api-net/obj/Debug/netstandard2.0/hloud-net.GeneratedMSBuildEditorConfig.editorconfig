@@ -1,0 +1,3 @@
+is_global = true
+build_property.RootNamespace = lkcode.hetznercloudapi
+build_property.ProjectDir = /home/thomas/projekte/PscCloud/cloud-api-net/

@@ -1,0 +1,15 @@
+/home/thomas/projekte/PscCloud/HetznerDNSPlugin/bin/Debug/net6.0/win-x86/HetznerDNSPlugin.deps.json
+/home/thomas/projekte/PscCloud/HetznerDNSPlugin/bin/Debug/net6.0/win-x86/HetznerDNSPlugin.dll
+/home/thomas/projekte/PscCloud/HetznerDNSPlugin/bin/Debug/net6.0/win-x86/ref/HetznerDNSPlugin.dll
+/home/thomas/projekte/PscCloud/HetznerDNSPlugin/bin/Debug/net6.0/win-x86/HetznerDNSPlugin.pdb
+/home/thomas/projekte/PscCloud/HetznerDNSPlugin/bin/Debug/net6.0/win-x86/PluginContract.dll
+/home/thomas/projekte/PscCloud/HetznerDNSPlugin/bin/Debug/net6.0/win-x86/PluginContract.pdb
+/home/thomas/projekte/PscCloud/HetznerDNSPlugin/obj/Debug/net6.0/win-x86/HetznerDNSPlugin.csproj.AssemblyReference.cache
+/home/thomas/projekte/PscCloud/HetznerDNSPlugin/obj/Debug/net6.0/win-x86/HetznerDNSPlugin.GeneratedMSBuildEditorConfig.editorconfig
+/home/thomas/projekte/PscCloud/HetznerDNSPlugin/obj/Debug/net6.0/win-x86/HetznerDNSPlugin.AssemblyInfoInputs.cache
+/home/thomas/projekte/PscCloud/HetznerDNSPlugin/obj/Debug/net6.0/win-x86/HetznerDNSPlugin.AssemblyInfo.cs
+/home/thomas/projekte/PscCloud/HetznerDNSPlugin/obj/Debug/net6.0/win-x86/HetznerDNSPlugin.csproj.CoreCompileInputs.cache
+/home/thomas/projekte/PscCloud/HetznerDNSPlugin/obj/Debug/net6.0/win-x86/HetznerDNSPlugin.csproj.CopyComplete
+/home/thomas/projekte/PscCloud/HetznerDNSPlugin/obj/Debug/net6.0/win-x86/HetznerDNSPlugin.dll
+/home/thomas/projekte/PscCloud/HetznerDNSPlugin/obj/Debug/net6.0/win-x86/ref/HetznerDNSPlugin.dll
+/home/thomas/projekte/PscCloud/HetznerDNSPlugin/obj/Debug/net6.0/win-x86/HetznerDNSPlugin.pdb

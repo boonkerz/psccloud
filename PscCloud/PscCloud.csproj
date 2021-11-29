@@ -1,0 +1,54 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <LangVersion>10</LangVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <AvaloniaResource Include="Assets\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="GroupMeDark.xaml" />
+    <None Remove="GroupMeLight.xaml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AvaloniaResource Include="GroupMeDark.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </AvaloniaResource>
+    <AvaloniaResource Include="GroupMeLight.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </AvaloniaResource>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Avalonia" Version="0.10.10" />
+    <PackageReference Include="Avalonia.Controls.DataGrid" Version="0.10.10" />
+    <PackageReference Include="Avalonia.Desktop" Version="0.10.10" />
+    <PackageReference Include="Avalonia.Diagnostics" Version="0.10.10" />
+    <PackageReference Include="Avalonia.ReactiveUI" Version="0.10.10" />
+    <PackageReference Include="Avalonia.Xaml.Behaviors" Version="0.10.10.3" />
+    <PackageReference Include="Avalonia.Xaml.Interactions" Version="0.10.10.3" />
+    <PackageReference Include="Avalonia.Xaml.Interactivity" Version="0.10.10.3" />
+    <PackageReference Include="Material.Avalonia" Version="2.4.1.30-nightly" />
+    <PackageReference Include="Material.Icons.Avalonia" Version="1.0.2" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="2.2.5" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="6.0.0" />
+    <PackageReference Include="Microsoft.Toolkit.Mvvm" Version="7.1.2" />
+    <PackageReference Include="Nager.HetznerDns" Version="1.0.3" />
+    <PackageReference Include="Prise" Version="2.1.2" />
+    <PackageReference Include="ScottPlot.Avalonia" Version="4.1.27" />
+    <PackageReference Include="SSH.NET" Version="2020.0.1" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\cloud-api-net\hloud-net.csproj" />
+    <ProjectReference Include="..\MicroCubeAvalonia\MicroCubeAvalonia.csproj" />
+    <ProjectReference Include="..\PluginContract\PluginContract.csproj" />
+    <ProjectReference Include="..\Shared\Shared.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="Views\PluginListView.axaml.cs">
+      <DependentUpon>PluginListView.axaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+</Project>

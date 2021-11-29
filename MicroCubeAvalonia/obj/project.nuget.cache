@@ -1,0 +1,32 @@
+{
+  "version": 2,
+  "dgSpecHash": "Oxo5g6WBPUOmuDjnp3Ec6f6SN4khiPy7BWZPQZbeOI+F07D3e90DEo2Qt88e69pqX20TXphyoJUDGEBH8Iw/eg==",
+  "success": true,
+  "projectFilePath": "/home/thomas/projekte/PscCloud/MicroCubeAvalonia/MicroCubeAvalonia.csproj",
+  "expectedPackageFiles": [
+    "/home/thomas/.nuget/packages/avalonia/0.10.10/avalonia.0.10.10.nupkg.sha512",
+    "/home/thomas/.nuget/packages/avalonia.reactiveui/0.10.10/avalonia.reactiveui.0.10.10.nupkg.sha512",
+    "/home/thomas/.nuget/packages/avalonia.remote.protocol/0.10.10/avalonia.remote.protocol.0.10.10.nupkg.sha512",
+    "/home/thomas/.nuget/packages/dynamicdata/7.1.1/dynamicdata.7.1.1.nupkg.sha512",
+    "/home/thomas/.nuget/packages/jetbrains.annotations/10.3.0/jetbrains.annotations.10.3.0.nupkg.sha512",
+    "/home/thomas/.nuget/packages/microsoft.netcore.platforms/1.1.0/microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "/home/thomas/.nuget/packages/microsoft.netcore.targets/1.1.0/microsoft.netcore.targets.1.1.0.nupkg.sha512",
+    "/home/thomas/.nuget/packages/reactiveui/13.2.10/reactiveui.13.2.10.nupkg.sha512",
+    "/home/thomas/.nuget/packages/splat/10.0.1/splat.10.0.1.nupkg.sha512",
+    "/home/thomas/.nuget/packages/system.componentmodel.annotations/4.5.0/system.componentmodel.annotations.4.5.0.nupkg.sha512",
+    "/home/thomas/.nuget/packages/system.globalization/4.3.0/system.globalization.4.3.0.nupkg.sha512",
+    "/home/thomas/.nuget/packages/system.io/4.3.0/system.io.4.3.0.nupkg.sha512",
+    "/home/thomas/.nuget/packages/system.memory/4.5.3/system.memory.4.5.3.nupkg.sha512",
+    "/home/thomas/.nuget/packages/system.reactive/5.0.0/system.reactive.5.0.0.nupkg.sha512",
+    "/home/thomas/.nuget/packages/system.reflection/4.3.0/system.reflection.4.3.0.nupkg.sha512",
+    "/home/thomas/.nuget/packages/system.reflection.primitives/4.3.0/system.reflection.primitives.4.3.0.nupkg.sha512",
+    "/home/thomas/.nuget/packages/system.resources.resourcemanager/4.3.0/system.resources.resourcemanager.4.3.0.nupkg.sha512",
+    "/home/thomas/.nuget/packages/system.runtime/4.3.0/system.runtime.4.3.0.nupkg.sha512",
+    "/home/thomas/.nuget/packages/system.runtime.compilerservices.unsafe/4.6.0/system.runtime.compilerservices.unsafe.4.6.0.nupkg.sha512",
+    "/home/thomas/.nuget/packages/system.runtime.serialization.primitives/4.3.0/system.runtime.serialization.primitives.4.3.0.nupkg.sha512",
+    "/home/thomas/.nuget/packages/system.text.encoding/4.3.0/system.text.encoding.4.3.0.nupkg.sha512",
+    "/home/thomas/.nuget/packages/system.threading.tasks/4.3.0/system.threading.tasks.4.3.0.nupkg.sha512",
+    "/home/thomas/.nuget/packages/system.valuetuple/4.5.0/system.valuetuple.4.5.0.nupkg.sha512"
+  ],
+  "logs": []
+}

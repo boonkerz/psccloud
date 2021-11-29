@@ -1,0 +1,27 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\PluginContract\PluginContract.csproj" />
+      <ProjectReference Include="..\PscCloud\PscCloud.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Avalonia.Controls.DataGrid" Version="0.10.10" />
+      <PackageReference Include="Prise.Plugin" Version="2.1.2" />
+      <PackageReference Include="ReactiveUI" Version="13.2.10" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Update="Views\ServerListView.axaml.cs">
+        <DependentUpon>ServerListView.axaml</DependentUpon>
+        <SubType>Code</SubType>
+      </Compile>
+    </ItemGroup>
+
+</Project>

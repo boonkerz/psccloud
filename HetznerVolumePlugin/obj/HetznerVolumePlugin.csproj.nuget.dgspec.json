@@ -1,0 +1,519 @@
+{
+  "format": 1,
+  "restore": {
+    "/home/thomas/projekte/PscCloud/HetznerVolumePlugin/HetznerVolumePlugin.csproj": {}
+  },
+  "projects": {
+    "/home/thomas/projekte/PscCloud/HetznerVolumePlugin/HetznerVolumePlugin.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/thomas/projekte/PscCloud/HetznerVolumePlugin/HetznerVolumePlugin.csproj",
+        "projectName": "HetznerVolumePlugin",
+        "projectPath": "/home/thomas/projekte/PscCloud/HetznerVolumePlugin/HetznerVolumePlugin.csproj",
+        "packagesPath": "/home/thomas/.nuget/packages/",
+        "outputPath": "/home/thomas/projekte/PscCloud/HetznerVolumePlugin/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/thomas/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "/home/thomas/projekte/PscCloud/MicroCubeAvalonia/MicroCubeAvalonia.csproj": {
+                "projectPath": "/home/thomas/projekte/PscCloud/MicroCubeAvalonia/MicroCubeAvalonia.csproj"
+              },
+              "/home/thomas/projekte/PscCloud/PluginContract/PluginContract.csproj": {
+                "projectPath": "/home/thomas/projekte/PscCloud/PluginContract/PluginContract.csproj"
+              },
+              "/home/thomas/projekte/PscCloud/PscCloud/PscCloud.csproj": {
+                "projectPath": "/home/thomas/projekte/PscCloud/PscCloud/PscCloud.csproj"
+              },
+              "/home/thomas/projekte/PscCloud/Shared/Shared.csproj": {
+                "projectPath": "/home/thomas/projekte/PscCloud/Shared/Shared.csproj"
+              },
+              "/home/thomas/projekte/PscCloud/cloud-api-net/hloud-net.csproj": {
+                "projectPath": "/home/thomas/projekte/PscCloud/cloud-api-net/hloud-net.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Avalonia": {
+              "target": "Package",
+              "version": "[0.10.10, )"
+            },
+            "Avalonia.Controls.DataGrid": {
+              "target": "Package",
+              "version": "[0.10.10, )"
+            },
+            "Avalonia.Xaml.Interactions": {
+              "target": "Package",
+              "version": "[0.10.10.3, )"
+            },
+            "Avalonia.Xaml.Interactivity": {
+              "target": "Package",
+              "version": "[0.10.10.3, )"
+            },
+            "Material.Icons.Avalonia": {
+              "target": "Package",
+              "version": "[1.0.2, )"
+            },
+            "Microsoft.Toolkit.Mvvm": {
+              "target": "Package",
+              "version": "[7.1.2, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.1, )"
+            },
+            "Prise.Plugin": {
+              "target": "Package",
+              "version": "[2.1.2, )"
+            },
+            "Prise.Proxy": {
+              "target": "Package",
+              "version": "[2.1.2, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/home/thomas/.dotnet/sdk/6.0.100/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/home/thomas/projekte/PscCloud/MicroCubeAvalonia/MicroCubeAvalonia.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/thomas/projekte/PscCloud/MicroCubeAvalonia/MicroCubeAvalonia.csproj",
+        "projectName": "MicroCubeAvalonia",
+        "projectPath": "/home/thomas/projekte/PscCloud/MicroCubeAvalonia/MicroCubeAvalonia.csproj",
+        "packagesPath": "/home/thomas/.nuget/packages/",
+        "outputPath": "/home/thomas/projekte/PscCloud/MicroCubeAvalonia/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/thomas/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Avalonia": {
+              "target": "Package",
+              "version": "[0.10.10, )"
+            },
+            "Avalonia.ReactiveUI": {
+              "target": "Package",
+              "version": "[0.10.10, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/home/thomas/.dotnet/sdk/6.0.100/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/home/thomas/projekte/PscCloud/PluginContract/PluginContract.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/thomas/projekte/PscCloud/PluginContract/PluginContract.csproj",
+        "projectName": "PluginContract",
+        "projectPath": "/home/thomas/projekte/PscCloud/PluginContract/PluginContract.csproj",
+        "packagesPath": "/home/thomas/.nuget/packages/",
+        "outputPath": "/home/thomas/projekte/PscCloud/PluginContract/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/thomas/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "/home/thomas/projekte/PscCloud/Shared/Shared.csproj": {
+                "projectPath": "/home/thomas/projekte/PscCloud/Shared/Shared.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Avalonia": {
+              "target": "Package",
+              "version": "[0.10.10, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/home/thomas/.dotnet/sdk/6.0.100/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/home/thomas/projekte/PscCloud/PscCloud/PscCloud.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/thomas/projekte/PscCloud/PscCloud/PscCloud.csproj",
+        "projectName": "PscCloud",
+        "projectPath": "/home/thomas/projekte/PscCloud/PscCloud/PscCloud.csproj",
+        "packagesPath": "/home/thomas/.nuget/packages/",
+        "outputPath": "/home/thomas/projekte/PscCloud/PscCloud/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/thomas/projekte/PscCloud/PscCloud/nuget.config",
+          "/home/thomas/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {},
+          "https://www.myget.org/F/avalonia-ci/api/v2": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "/home/thomas/projekte/PscCloud/MicroCubeAvalonia/MicroCubeAvalonia.csproj": {
+                "projectPath": "/home/thomas/projekte/PscCloud/MicroCubeAvalonia/MicroCubeAvalonia.csproj"
+              },
+              "/home/thomas/projekte/PscCloud/PluginContract/PluginContract.csproj": {
+                "projectPath": "/home/thomas/projekte/PscCloud/PluginContract/PluginContract.csproj"
+              },
+              "/home/thomas/projekte/PscCloud/Shared/Shared.csproj": {
+                "projectPath": "/home/thomas/projekte/PscCloud/Shared/Shared.csproj"
+              },
+              "/home/thomas/projekte/PscCloud/cloud-api-net/hloud-net.csproj": {
+                "projectPath": "/home/thomas/projekte/PscCloud/cloud-api-net/hloud-net.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Avalonia": {
+              "target": "Package",
+              "version": "[0.10.10, )"
+            },
+            "Avalonia.Controls.DataGrid": {
+              "target": "Package",
+              "version": "[0.10.10, )"
+            },
+            "Avalonia.Desktop": {
+              "target": "Package",
+              "version": "[0.10.10, )"
+            },
+            "Avalonia.Diagnostics": {
+              "target": "Package",
+              "version": "[0.10.10, )"
+            },
+            "Avalonia.ReactiveUI": {
+              "target": "Package",
+              "version": "[0.10.10, )"
+            },
+            "Avalonia.Xaml.Behaviors": {
+              "target": "Package",
+              "version": "[0.10.10.3, )"
+            },
+            "Avalonia.Xaml.Interactions": {
+              "target": "Package",
+              "version": "[0.10.10.3, )"
+            },
+            "Avalonia.Xaml.Interactivity": {
+              "target": "Package",
+              "version": "[0.10.10.3, )"
+            },
+            "Material.Avalonia": {
+              "target": "Package",
+              "version": "[2.4.1.30-nightly, )"
+            },
+            "Material.Icons.Avalonia": {
+              "target": "Package",
+              "version": "[1.0.2, )"
+            },
+            "Microsoft.AspNetCore.Mvc.Core": {
+              "target": "Package",
+              "version": "[2.2.5, )"
+            },
+            "Microsoft.Extensions.DependencyInjection": {
+              "target": "Package",
+              "version": "[6.0.0, )"
+            },
+            "Microsoft.Toolkit.Mvvm": {
+              "target": "Package",
+              "version": "[7.1.2, )"
+            },
+            "Nager.HetznerDns": {
+              "target": "Package",
+              "version": "[1.0.3, )"
+            },
+            "Prise": {
+              "target": "Package",
+              "version": "[2.1.2, )"
+            },
+            "SSH.NET": {
+              "target": "Package",
+              "version": "[2020.0.1, )"
+            },
+            "ScottPlot.Avalonia": {
+              "target": "Package",
+              "version": "[4.1.27, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/home/thomas/.dotnet/sdk/6.0.100/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/home/thomas/projekte/PscCloud/Shared/Shared.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/thomas/projekte/PscCloud/Shared/Shared.csproj",
+        "projectName": "Shared",
+        "projectPath": "/home/thomas/projekte/PscCloud/Shared/Shared.csproj",
+        "packagesPath": "/home/thomas/.nuget/packages/",
+        "outputPath": "/home/thomas/projekte/PscCloud/Shared/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/thomas/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "/home/thomas/projekte/PscCloud/MicroCubeAvalonia/MicroCubeAvalonia.csproj": {
+                "projectPath": "/home/thomas/projekte/PscCloud/MicroCubeAvalonia/MicroCubeAvalonia.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Avalonia": {
+              "target": "Package",
+              "version": "[0.10.10, )"
+            },
+            "Config.Net.Json": {
+              "target": "Package",
+              "version": "[4.17.0, )"
+            },
+            "Microsoft.Toolkit.Mvvm": {
+              "target": "Package",
+              "version": "[7.1.2, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.1, )"
+            },
+            "ReactiveUI": {
+              "target": "Package",
+              "version": "[13.2.10, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/home/thomas/.dotnet/sdk/6.0.100/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/home/thomas/projekte/PscCloud/cloud-api-net/hloud-net.csproj": {
+      "version": "1.0.30",
+      "restore": {
+        "projectUniqueName": "/home/thomas/projekte/PscCloud/cloud-api-net/hloud-net.csproj",
+        "projectName": "hetznercloudapi",
+        "projectPath": "/home/thomas/projekte/PscCloud/cloud-api-net/hloud-net.csproj",
+        "packagesPath": "/home/thomas/.nuget/packages/",
+        "outputPath": "/home/thomas/projekte/PscCloud/cloud-api-net/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/thomas/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.CSharp": {
+              "target": "Package",
+              "version": "[4.7.0, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.1, )"
+            },
+            "System.Dynamic.Runtime": {
+              "target": "Package",
+              "version": "[4.3.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/home/thomas/.dotnet/sdk/6.0.100/RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

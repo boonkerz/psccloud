@@ -1,0 +1,35 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Avalonia" Version="0.10.10" />
+      <PackageReference Include="Avalonia.Controls.DataGrid" Version="0.10.10" />
+      <PackageReference Include="Avalonia.Xaml.Interactions" Version="0.10.10.4" />
+      <PackageReference Include="Avalonia.Xaml.Interactions.Custom" Version="0.10.3" />
+      <PackageReference Include="Avalonia.Xaml.Interactivity" Version="0.10.10.4" />
+      <PackageReference Include="Material.Icons.Avalonia" Version="1.0.2" />
+      <PackageReference Include="Nager.HetznerDns" Version="1.0.3" />
+      <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+      <PackageReference Include="Prise.Plugin" Version="2.1.2" />
+      <PackageReference Include="Prise.Proxy" Version="2.1.2" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\PluginContract\PluginContract.csproj" />
+      <ProjectReference Include="..\PscCloud\PscCloud.csproj" />
+      <ProjectReference Include="..\Shared\Shared.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Update="Views\DNSListView.axaml.cs">
+        <DependentUpon>DNSListView.axaml</DependentUpon>
+        <SubType>Code</SubType>
+      </Compile>
+    </ItemGroup>
+
+</Project>

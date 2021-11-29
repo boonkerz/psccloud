@@ -1,0 +1,13 @@
+/home/thomas/projekte/PscCloud/MicroCubeAvalonia/bin/Debug/netcoreapp3.1/MicroCubeAvalonia.deps.json
+/home/thomas/projekte/PscCloud/MicroCubeAvalonia/bin/Debug/netcoreapp3.1/MicroCubeAvalonia.dll
+/home/thomas/projekte/PscCloud/MicroCubeAvalonia/bin/Debug/netcoreapp3.1/MicroCubeAvalonia.pdb
+/home/thomas/projekte/PscCloud/MicroCubeAvalonia/bin/Debug/netcoreapp3.1/System.Reactive.dll
+/home/thomas/projekte/PscCloud/MicroCubeAvalonia/bin/Debug/netcoreapp3.1/System.Reactive.xml
+/home/thomas/projekte/PscCloud/MicroCubeAvalonia/obj/Debug/netcoreapp3.1/MicroCubeAvalonia.csproj.AssemblyReference.cache
+/home/thomas/projekte/PscCloud/MicroCubeAvalonia/obj/Debug/netcoreapp3.1/MicroCubeAvalonia.GeneratedMSBuildEditorConfig.editorconfig
+/home/thomas/projekte/PscCloud/MicroCubeAvalonia/obj/Debug/netcoreapp3.1/MicroCubeAvalonia.AssemblyInfoInputs.cache
+/home/thomas/projekte/PscCloud/MicroCubeAvalonia/obj/Debug/netcoreapp3.1/MicroCubeAvalonia.AssemblyInfo.cs
+/home/thomas/projekte/PscCloud/MicroCubeAvalonia/obj/Debug/netcoreapp3.1/MicroCubeAvalonia.csproj.CoreCompileInputs.cache
+/home/thomas/projekte/PscCloud/MicroCubeAvalonia/obj/Debug/netcoreapp3.1/MicroCubeAvalonia.csproj.CopyComplete
+/home/thomas/projekte/PscCloud/MicroCubeAvalonia/obj/Debug/netcoreapp3.1/MicroCubeAvalonia.dll
+/home/thomas/projekte/PscCloud/MicroCubeAvalonia/obj/Debug/netcoreapp3.1/MicroCubeAvalonia.pdb

@@ -1,0 +1,32 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+			 xmlns:converter="clr-namespace:PscCloud.Converter"
+			 xmlns:i="clr-namespace:Avalonia.Xaml.Interactivity;assembly=Avalonia.Xaml.Interactivity"
+			 xmlns:ia="clr-namespace:Avalonia.Xaml.Interactions.Core;assembly=Avalonia.Xaml.Interactions"
+			xmlns:avalonia="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia"
+             x:Class="PscCloud.Views.PluginListView">
+
+
+	<StackPanel>
+		<Button Command="{Binding LoadAllPluginsCommand}" Width="160">
+			Load Components
+		</Button>
+		<Button Command="{Binding UnLoadAllPluginsCommand}" Width="160">
+			Unload Components
+		</Button>
+		<ListBox Items="{Binding Plugins}" Width="300">
+			<ListBox.ItemTemplate>
+				<DataTemplate>
+					<Button Command="{Binding LoadPluginCommand}" CommandParameter="{Binding}">
+						<TextBlock Text="{Binding }"/>
+					</Button>
+				</DataTemplate>
+			</ListBox.ItemTemplate>
+		</ListBox>
+		<ContentControl Content="{Binding CurrentControl}">
+		</ContentControl>
+	</StackPanel>
+</UserControl>

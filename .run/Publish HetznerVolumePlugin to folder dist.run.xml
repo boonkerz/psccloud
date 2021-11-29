@@ -1,0 +1,6 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Publish HetznerVolumePlugin to folder dist" type="DotNetFolderPublish" factoryName="Publish to folder">
+    <riderPublish configuration="Debug" platform="Any CPU" runtime="Portable" target_folder="$PROJECT_DIR$/_dist" target_framework="net6.0" uuid_high="-867845852771630247" uuid_low="-7313606459350301887" />
+    <method v="2" />
+  </configuration>
+</component>

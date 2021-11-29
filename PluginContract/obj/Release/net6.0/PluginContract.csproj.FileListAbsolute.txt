@@ -1,0 +1,12 @@
+/home/thomas/projekte/PscCloud/PluginContract/bin/Release/net6.0/PluginContract.deps.json
+/home/thomas/projekte/PscCloud/PluginContract/bin/Release/net6.0/PluginContract.dll
+/home/thomas/projekte/PscCloud/PluginContract/bin/Release/net6.0/ref/PluginContract.dll
+/home/thomas/projekte/PscCloud/PluginContract/bin/Release/net6.0/PluginContract.pdb
+/home/thomas/projekte/PscCloud/PluginContract/obj/Release/net6.0/PluginContract.csproj.AssemblyReference.cache
+/home/thomas/projekte/PscCloud/PluginContract/obj/Release/net6.0/PluginContract.GeneratedMSBuildEditorConfig.editorconfig
+/home/thomas/projekte/PscCloud/PluginContract/obj/Release/net6.0/PluginContract.AssemblyInfoInputs.cache
+/home/thomas/projekte/PscCloud/PluginContract/obj/Release/net6.0/PluginContract.AssemblyInfo.cs
+/home/thomas/projekte/PscCloud/PluginContract/obj/Release/net6.0/PluginContract.csproj.CoreCompileInputs.cache
+/home/thomas/projekte/PscCloud/PluginContract/obj/Release/net6.0/PluginContract.dll
+/home/thomas/projekte/PscCloud/PluginContract/obj/Release/net6.0/ref/PluginContract.dll
+/home/thomas/projekte/PscCloud/PluginContract/obj/Release/net6.0/PluginContract.pdb

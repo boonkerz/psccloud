@@ -1,0 +1,6 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Publish HetznerServerPlugin to folder" type="DotNetFolderPublish" factoryName="Publish to folder">
+    <riderPublish configuration="Debug" platform="Any CPU" runtime="Portable" target_folder="$PROJECT_DIR$/_dist" target_framework="net6.0" uuid_high="-3261350976642988791" uuid_low="-6077219545831172272" />
+    <method v="2" />
+  </configuration>
+</component>

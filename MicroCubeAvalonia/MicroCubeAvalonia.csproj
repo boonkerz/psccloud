@@ -1,0 +1,40 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <LangVersion>10</LangVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Controls\HamburgerMenu.xaml" />
+    <None Remove="Controls\HamburgerMenuItem.xaml" />
+    <None Remove="Controls\ProgressRing.xaml" />
+    <None Remove="DefaultTheme.xaml" />
+    <None Remove="IconPack\IconControl.xaml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <AvaloniaResource Include="Controls\HamburgerMenu.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </AvaloniaResource>
+    <AvaloniaResource Include="Controls\HamburgerMenuItem.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </AvaloniaResource>
+    <AvaloniaResource Include="Controls\ProgressRing.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </AvaloniaResource>
+    <AvaloniaResource Include="DefaultTheme.xaml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <AvaloniaResource Include="IconPack\IconControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </AvaloniaResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Avalonia" Version="0.10.10" />
+    <PackageReference Include="Avalonia.ReactiveUI" Version="0.10.10" />
+  </ItemGroup>
+
+</Project>

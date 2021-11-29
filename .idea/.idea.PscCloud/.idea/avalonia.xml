@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AvaloniaProject">
+    <option name="projectPerEditor">
+      <map>
+        <entry key="MicroCubeAvalonia/IconPack/IconControl.xaml" value="PscCloud/PscCloud.csproj" />
+        <entry key="PscCloud/App.axaml" value="PscCloud/PscCloud.csproj" />
+        <entry key="PscCloud/Views/MainWindow.axaml" value="PscCloud/PscCloud.csproj" />
+        <entry key="PscCloud/Views/PluginListView.axaml" value="PscCloud/PscCloud.csproj" />
+      </map>
+    </option>
+  </component>
+</project>

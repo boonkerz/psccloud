@@ -1,0 +1,133 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+			 xmlns:converter="clr-namespace:PscCloud.Plugin.HetznerServerPlugin.Converter"
+			 xmlns:i="clr-namespace:Avalonia.Xaml.Interactivity;assembly=Avalonia.Xaml.Interactivity"
+			 xmlns:ia="clr-namespace:Avalonia.Xaml.Interactions.Core;assembly=Avalonia.Xaml.Interactions"
+			xmlns:avalonia="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia"
+			 xmlns:ScottPlot="clr-namespace:ScottPlot.Avalonia;assembly=ScottPlot.Avalonia"
+             x:Class="PscCloud.Plugin.HetznerServerPlugin.Views.ServerListView"
+			 Name="ServerList">
+
+	<UserControl.Resources>
+		<converter:StatusConverter x:Key="StatusConverter"/>
+		<converter:DateTimeConverter x:Key="DateTimeConverter"/>
+	</UserControl.Resources>
+
+	<Grid Name="Grid" RowDefinitions="Auto,*,Auto,Auto" ColumnDefinitions="*">
+
+		<StackPanel Grid.Row="0" Orientation="Horizontal" Margin="3" Spacing="3">
+			<Button Command="{Binding OnRefreshStatus}">Refresh Status</Button>
+			<Button Command="{Binding OnDockerPrune}">Docker Prune</Button>
+			<Button Command="{Binding OnDockerUpdate}">Docker Update</Button>
+		</StackPanel>
+		<DataGrid Grid.Row="1" Items="{Binding ServerService.ServerList}" SelectedItem="{Binding SelectedServer, Mode=TwoWay}" DoubleTapped="InputElement_OnDoubleTapped" IsReadOnly="True">
+			<DataGrid.Styles>
+				<Style Selector="DataGridCell.customClass">
+					<Setter Property="Foreground" Value="{Binding Status, Converter={StaticResource StatusConverter}}" />
+				</Style>
+				<Style Selector="DataGridCell.customClassDateTime">
+					<Setter Property="Foreground" Value="{Binding BackupLastModified, Converter={StaticResource DateTimeConverter}}" />
+				</Style>
+			</DataGrid.Styles>
+			<DataGrid.Columns>
+				<DataGridTemplateColumn Width="SizeToCells" IsReadOnly="True">
+					<DataGridTemplateColumn.CellTemplate>
+						<DataTemplate>
+							<avalonia:MaterialIcon Kind="{Binding IsGoodIcon}" Foreground="{Binding IsGoodColor}"></avalonia:MaterialIcon>
+						</DataTemplate>
+					</DataGridTemplateColumn.CellTemplate>
+				</DataGridTemplateColumn>
+				<DataGridTextColumn Header="Id"
+									Binding="{Binding Id}"
+									Width="*" />
+				<DataGridTextColumn Header="Name"
+									Binding="{Binding Name}"
+									Width="2*" />
+				<DataGridTextColumn Header="Status"
+									Binding="{Binding Status}"
+									Width="*"
+									CellStyleClasses="customClass">
+				</DataGridTextColumn>
+				<DataGridTextColumn Header="Created"
+									Binding="{Binding Created}"
+									Width="*" />
+				<DataGridTextColumn Header="Ipv4"
+									Binding="{Binding Ip4}"
+									Width="*" />
+				<DataGridTextColumn Header="Ipv6"
+									Binding="{Binding Ip6}"
+									Width="*" />
+
+				<DataGridTextColumn Header="Datum"
+									Binding="{Binding Datum}"
+									Width="*" />
+				<DataGridTextColumn Header="Release"
+									Binding="{Binding Release}"
+									Width="*" />
+
+				<DataGridTextColumn Header="Last Backup"
+									Binding="{Binding BackupLastModified}"
+									Width="*"
+									CellStyleClasses="customClassDateTime"/>
+
+				<DataGridTextColumn Header="Mongo DB Version"
+									Binding="{Binding MongoVersion}"
+									Width="*"/>
+
+				<DataGridTextColumn Header="Mysql Version"
+									Binding="{Binding MysqlVersion}"
+									Width="*"
+									/>
+
+				<DataGridTextColumn Header="Running Container"
+									Binding="{Binding RunningContainerCount}"
+									Width="*"
+									/>
+
+				<DataGridTextColumn Header="Root Dir Belegung"
+									Binding="{Binding RootDirUsed}"
+									Width="*"
+									/>
+
+				<DataGridTextColumn Header="Data Dir Belegung"
+									Binding="{Binding DataDirUsed}"
+									Width="*"
+									/>
+			</DataGrid.Columns>
+		</DataGrid>
+		<GridSplitter Name="ResultsSplitter" Grid.Row="2"  IsVisible="True" VerticalAlignment="Center" HorizontalAlignment="Stretch"></GridSplitter>
+
+		<TabControl Name="Results" Grid.Row="3" IsVisible="True" Margin="4" Items="{Binding TabViewControlModel.TabItems}" SelectedItem="{Binding TabViewControlModel.SelectedTabServer, Mode=TwoWay}">
+			<TabControl.ItemTemplate>
+				<DataTemplate>
+					<StackPanel Orientation="Horizontal">
+						<TextBlock Text="{Binding Header}" />
+						<Button Command="{Binding ElementName=ServerList, Path=DataContext.TabViewControlModel.OnCloseTab}">
+							<avalonia:MaterialIcon Kind="Close"></avalonia:MaterialIcon>
+						</Button>
+					</StackPanel>
+				</DataTemplate>
+			</TabControl.ItemTemplate>
+			<TabControl.ContentTemplate>
+				<DataTemplate>
+					<DockPanel LastChildFill="True">
+						<TextBlock Text="{Binding ServerItem.Name}" />
+										
+						<DataGrid Name="Domains" Items="{Binding ServerItem.Domains}"  IsReadOnly="True">
+							<DataGrid.Columns>
+								<DataGridTextColumn Header="Name"
+								Binding="{Binding Name}"
+								Width="2*" />
+							</DataGrid.Columns>
+						</DataGrid>
+						
+					</DockPanel>
+					
+				</DataTemplate>
+			</TabControl.ContentTemplate>
+		</TabControl>
+	</Grid>
+</UserControl>
