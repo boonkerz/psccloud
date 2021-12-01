@@ -10,6 +10,7 @@ using Microsoft.Toolkit.Mvvm.DependencyInjection;
 using Prise;
 using PscCloud.Plugin.Contract;
 using PscCloud.Shared.Service;
+using PscCloud.Shared.Settings;
 
 namespace PscCloud.Service
 {
@@ -63,23 +64,28 @@ namespace PscCloud.Service
 
             var pluginLoader = Ioc.Default.GetService<IPluginLoader>();
             var menuService = Ioc.Default.GetService<MenuService>();
+            var settingsService = Ioc.Default.GetService<SettingsManager>();
             
             var pluginAssemblies = await pluginLoader.FindPlugins<IAppPlugin>(getPluginPath());
             var pluginToEnable = pluginAssemblies.FirstOrDefault(p => Path.GetFileNameWithoutExtension(p.AssemblyName) == pluginName);
-            
-            var plugin = await pluginLoader.LoadPlugin<IAppPlugin>(pluginToEnable, configure: (context) =>
+
+            if (pluginToEnable != null)
             {
-                context
-                    .AddHostTypes(new[] {typeof(Application)})
-                    .AddHostService<MenuService>(menuService)
-                    ;
-            });
+                var plugin = await pluginLoader.LoadPlugin<IAppPlugin>(pluginToEnable, configure: (context) =>
+                {
+                    context
+                        .AddHostTypes(new[] {typeof(Application)})
+                        .AddHostService<MenuService>(menuService)
+                        .AddHostService<SettingsManager>(settingsService)
+                        ;
+                });
 
 
-            if (!this.loadedPlugins.ContainsKey(pluginName))
-            {
-                loadedPlugins.Add(plugin.GetName(), plugin);
-                plugin.addMenu();
+                if (!this.loadedPlugins.ContainsKey(pluginName))
+                {
+                    loadedPlugins.Add(plugin.GetName(), plugin);
+                    plugin.addMenu();
+                }
             }
         }
     }

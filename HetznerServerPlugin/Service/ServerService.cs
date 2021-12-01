@@ -33,9 +33,13 @@ namespace PscCloud.Plugin.HetznerServerPlugin.Service
         private bool isOnRefreshStatus = false;
         private bool isOnDockerPrune = false;
 
-        public ServerService(SettingsManager settingsManager)
+        public ServerService()
         {
-            settings = settingsManager;
+        }
+
+        public void Init()
+        {
+            settings = Ioc.Default.GetService<SettingsManager>();
             ServerList = new AvaloniaList<Server>();
             lkcode.hetznercloudapi.Core.ApiCore.ApiToken = settings.CoreSettings.ApiToken;
 
@@ -44,6 +48,8 @@ namespace PscCloud.Plugin.HetznerServerPlugin.Service
             autoSaveTimer.Start();
 
             Task.Run(async () => await this.reloadServer());
+
+            this.reloadServer();
         }
 
         public void RefreshStatus()

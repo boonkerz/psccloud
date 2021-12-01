@@ -1,0 +1,30 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="NextcloudApi" Version="1.0.17" />
+      <PackageReference Include="Prise" Version="2.1.2" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\PluginContract\PluginContract.csproj" />
+      <ProjectReference Include="..\PscCloud\PscCloud.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Update="Views\NotesListView.axaml.cs">
+        <DependentUpon>NotesListView.axaml</DependentUpon>
+        <SubType>Code</SubType>
+      </Compile>
+      <Compile Update="Views\VolumeListView.axaml.cs">
+        <DependentUpon>VolumeListView.axaml</DependentUpon>
+        <SubType>Code</SubType>
+      </Compile>
+    </ItemGroup>
+
+</Project>

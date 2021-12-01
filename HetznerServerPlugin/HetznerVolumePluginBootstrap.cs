@@ -2,6 +2,7 @@ using Avalonia;
 using Microsoft.Extensions.DependencyInjection;
 using Prise.Plugin;
 using PscCloud.Plugin.Contract;
+using PscCloud.Plugin.HetznerServerPlugin.Service;
 using PscCloud.Plugin.HetznerServerPlugin.ViewModels;
 
 namespace PscCloud.Plugin.HetznerServerPlugin

@@ -77,7 +77,8 @@ namespace PscCloud.Plugin.HetznerServerPlugin.ViewModels
         public ServerListViewModel()
         {
             TabViewControlModel = new TabViewControl();
-            ServerService = Ioc.Default.GetService<ServerService>();
+            ServerService = new ServerService();
+            ServerService.Init();
         }
 
         public void addTab(Server sender)
