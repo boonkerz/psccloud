@@ -9,32 +9,37 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using Avalonia.Controls;
+using Avalonia.ReactiveUI;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Toolkit.Mvvm.DependencyInjection;
+using PscCloud.Plugin.Nextcloud.Notes.Api;
 using PscCloud.Plugin.Nextcloud.Notes.Views;
 using PscCloud.Shared.Models.ViewModels;
 using PscCloud.Shared.Service;
 using PscCloud.Shared.Settings;
+using ScottPlot;
 
 namespace PscCloud.Plugin.Nextcloud.Notes.ViewModels
 {
-    class NotesListViewModel : ViewModelBase, IPluginViewModelBase
+    public class NotesListViewModel : ViewModelBase, IPluginViewModelBase
     {
-        public SettingsManager settings;
-
+        public SettingsManager settingsManager;
+        
         private readonly DispatcherTimer autoSaveTimer = new DispatcherTimer();
         public NotesListViewModel(SettingsManager settingsManager)
         {
-            settings = settingsManager;
+            this.settingsManager = settingsManager;
 
-            var settingsNext = new NextcloudApi.Settings();
-            settingsNext.Username = "boonkerz";
-            settingsNext.ApplicationName = "PscCloud";
-            settingsNext.ServerUri = new Uri("https://cloud.thomas-peterson.de");
-            var api = new NextcloudApi.Api(settingsNext);
+            var settings = new Model.Settings();
+            this.settingsManager.LoadPluginSettings("NextcloudNotesPlugin", settings);
 
-            api.LoginOrRefreshIfRequiredAsync();
+            if (settings.AppPassword == null || settings.AppPassword.Length == 0)
+            {
+                var win = new SettingsView();
+                win.Show();
+            }
         }
+
         public UserControl GetViewControl()
         {
             return new NotesListView();

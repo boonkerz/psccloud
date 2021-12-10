@@ -27,10 +27,6 @@ namespace PscCloud.ViewModels
         private AvaloniaList<HamburgerMenuItem> menuOptionItems = new AvaloniaList<HamburgerMenuItem>();
         private HamburgerMenuItem selectedItem;
 
-        private string DataRoot => Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "PSC", "PscCloud");
-
-        private string SettingsPath => Path.Combine(this.DataRoot, "settings.json");
-
         private SettingsViewModel SettingsViewModel { get; set; }
         
         private PluginListViewModel PluginListViewModel { get; set; }
@@ -76,13 +72,7 @@ namespace PscCloud.ViewModels
 
         public MainWindowViewModel()
         {
-            Directory.CreateDirectory(this.DataRoot);
-
-            var starupParams = new Startup.StartupParameters()
-            {
-                SettingsFilePath = this.SettingsPath
-            };
-            Startup.RegisterServices(starupParams);
+            Startup.RegisterServices();
 
             this.menuService = Ioc.Default.GetService<MenuService>();
             this.SettingsManager = Ioc.Default.GetService<SettingsManager>();

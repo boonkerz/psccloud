@@ -17,10 +17,10 @@ namespace PscCloud
     class Startup
     {
         
-        public static void RegisterServices(StartupParameters startupParameters)
+        public static void RegisterServices()
         {
 
-            var set = new SettingsManager(startupParameters.SettingsFilePath);
+            var set = new SettingsManager();
             var menuService = new MenuService();
             
             Ioc.Default.ConfigureServices(
@@ -35,15 +35,7 @@ namespace PscCloud
                     .BuildServiceProvider());
                 
         }
-        
-        public class StartupParameters
-        {
-            /// <summary>
-            /// Gets or sets the location of the application settings file.
-            /// </summary>
-            public string SettingsFilePath { get; set; }
-
-        }
+       
     }
     
 }

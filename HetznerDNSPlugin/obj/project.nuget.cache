@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "d2koELaeIuf2Q4cicOQT8wOLDvJXuf4CeprnuFgIqpdZKIsCrmOUtporot2JttNYgAAOsfBXkZvAuv5N1CnKbw==",
+  "dgSpecHash": "o+EgXJHaYnBuP9rGs/iQ1ZHbAT935W6U68IyO2ZRDv0sfqqTZ8Owv3cX7E2mF4cO9hzfjCheszo5mwiyC3xr4Q==",
   "success": true,
   "projectFilePath": "/home/thomas/projekte/PscCloud/HetznerDNSPlugin/HetznerDNSPlugin.csproj",
   "expectedPackageFiles": [

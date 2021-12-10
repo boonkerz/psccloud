@@ -10,13 +10,13 @@ namespace PscCloud.Shared.Settings
 {
     public class SettingsManager
     {
-        /// <summary>
-        /// Initializes a new instance of the <see cref="SettingsManager"/> class.
-        /// </summary>
-        /// <param name="databaseName">The name of the database file to open.</param>
-        public SettingsManager(string databaseName)
+        private string DataRoot => Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "PSC", "PscCloud");
+
+        private string SettingsPath => Path.Combine(this.DataRoot, "settings.json");
+        
+        public SettingsManager()
         {
-            this.SettingsFile = databaseName ?? throw new ArgumentNullException(nameof(databaseName));
+            Directory.CreateDirectory(this.DataRoot);
             this.LoadSettings();
         }
 
@@ -37,9 +37,9 @@ namespace PscCloud.Shared.Settings
         /// </summary>
         public void LoadSettings()
         {
-            if (File.Exists(this.SettingsFile))
+            if (File.Exists(this.SettingsPath))
             {
-                string json = File.ReadAllText(this.SettingsFile);
+                string json = File.ReadAllText(this.SettingsPath);
                 JsonConvert.PopulateObject(json, this);
             }
         }
@@ -58,6 +58,33 @@ namespace PscCloud.Shared.Settings
                 };
 
                 serializer.Serialize(file, this);
+            }
+        }
+        
+        public void LoadPluginSettings(string pluginName, object? settingsObject)
+        {
+
+            var pluginSettingsPath = Path.Combine(this.DataRoot, pluginName + "_settings.json");
+            
+            if (File.Exists(pluginSettingsPath))
+            {
+                string json = File.ReadAllText(pluginSettingsPath);
+                JsonConvert.PopulateObject(json, settingsObject);
+            }
+        }
+        
+        public void SavePluginSettings(string pluginName, object? settingsObject)
+        {
+            var pluginSettingsPath = Path.Combine(this.DataRoot, pluginName + "_settings.json");
+            
+            using (StreamWriter file = File.CreateText(pluginSettingsPath))
+            {
+                JsonSerializer serializer = new JsonSerializer()
+                {
+                    Formatting = Formatting.Indented,
+                };
+
+                serializer.Serialize(file, settingsObject);
             }
         }
     }

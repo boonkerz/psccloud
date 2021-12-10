@@ -87,7 +87,6 @@
 /home/thomas/projekte/PscCloud/_dist/MimeMapping.dll
 /home/thomas/projekte/PscCloud/_dist/Nager.HetznerDns.dll
 /home/thomas/projekte/PscCloud/_dist/Newtonsoft.Json.dll
-/home/thomas/projekte/PscCloud/_dist/NextcloudApi.dll
 /home/thomas/projekte/PscCloud/_dist/NuGet.Versioning.dll
 /home/thomas/projekte/PscCloud/_dist/Prise.Plugin.dll
 /home/thomas/projekte/PscCloud/_dist/Prise.Proxy.dll

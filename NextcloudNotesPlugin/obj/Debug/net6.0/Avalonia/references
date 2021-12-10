@@ -84,12 +84,11 @@
 /home/thomas/.dotnet/packs/Microsoft.NETCore.App.Ref/6.0.0/ref/net6.0/Microsoft.VisualBasic.dll
 /home/thomas/.dotnet/packs/Microsoft.NETCore.App.Ref/6.0.0/ref/net6.0/Microsoft.Win32.Primitives.dll
 /home/thomas/.dotnet/packs/Microsoft.NETCore.App.Ref/6.0.0/ref/net6.0/Microsoft.Win32.Registry.dll
-/home/thomas/.nuget/packages/mimemapping/1.0.1.12/lib/netstandard1.1/MimeMapping.dll
+/home/thomas/.nuget/packages/mimemapping/1.0.1.37/lib/netstandard2.1/MimeMapping.dll
 /home/thomas/.dotnet/packs/Microsoft.NETCore.App.Ref/6.0.0/ref/net6.0/mscorlib.dll
 /home/thomas/.nuget/packages/nager.hetznerdns/1.0.3/lib/netstandard2.0/Nager.HetznerDns.dll
 /home/thomas/.dotnet/packs/Microsoft.NETCore.App.Ref/6.0.0/ref/net6.0/netstandard.dll
 /home/thomas/.nuget/packages/newtonsoft.json/13.0.1/lib/netstandard2.0/Newtonsoft.Json.dll
-/home/thomas/.nuget/packages/nextcloudapi/1.0.17/lib/netstandard2.0/NextcloudApi.dll
 /home/thomas/.nuget/packages/nuget.versioning/5.8.0/lib/netstandard2.0/NuGet.Versioning.dll
 /home/thomas/projekte/PscCloud/PluginContract/bin/Debug/net6.0/ref/PluginContract.dll
 /home/thomas/.nuget/packages/prise/2.1.2/lib/net5.0/Prise.dll
@@ -98,6 +97,7 @@
 /home/thomas/projekte/PscCloud/PscCloud/bin/Debug/net6.0/ref/PscCloud.dll
 /home/thomas/.nuget/packages/reactiveui/13.2.10/lib/net5.0/ReactiveUI.dll
 /home/thomas/.nuget/packages/ssh.net/2020.0.1/lib/netstandard2.0/Renci.SshNet.dll
+/home/thomas/.nuget/packages/restsharp/106.13.0/lib/netstandard2.0/RestSharp.dll
 /home/thomas/.nuget/packages/scottplot.avalonia/4.1.27/lib/net5.0/ScottPlot.Avalonia.dll
 /home/thomas/.nuget/packages/scottplot/4.1.27/lib/net5.0/ScottPlot.dll
 /home/thomas/projekte/PscCloud/Shared/bin/Debug/net6.0/ref/Shared.dll
