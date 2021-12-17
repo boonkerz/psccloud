@@ -16,10 +16,6 @@
     <method v="2">
       <option name="Build" />
       <option name="RunConfigurationTask" enabled="true" run_configuration_name="Publish NextcloudNotesPlugin to folder" run_configuration_type="DotNetFolderPublish" />
-      <option name="RunConfigurationTask" enabled="true" run_configuration_name="Publish HetznerDNSPlugin to folder" run_configuration_type="DotNetFolderPublish" />
-      <option name="RunConfigurationTask" enabled="true" run_configuration_name="Publish HetznerServerPlugin to folder" run_configuration_type="DotNetFolderPublish" />
-      <option name="RunConfigurationTask" enabled="true" run_configuration_name="Publish HetznerVolumePlugin to folder dist" run_configuration_type="DotNetFolderPublish" />
-      <option name="ToolBeforeRunTask" enabled="true" actionId="Tool_External Tools_clean dist" />
       <option name="ToolBeforeRunTask" enabled="true" actionId="Tool_External Tools_clean dist" />
     </method>
   </configuration>

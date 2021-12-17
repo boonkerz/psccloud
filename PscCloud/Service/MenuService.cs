@@ -72,15 +72,22 @@ namespace PscCloud.Service
         {
             this.MenuItems.Clear();
             this.MenuOptionItems.Clear();
-
+            var pluginTab = new HamburgerMenuItem()
+            {
+                Icon = new IconControl() { BindableKind = PackIconMaterialKind.PowerPlug },
+                Label = "Plugins",
+                ToolTip = "View Plugin Records",
+                Tag = Ioc.Default.GetService<PluginListViewModel>(),
+            };
             var settingsTab = new HamburgerMenuItem()
             {
                 Icon = new IconControl() { BindableKind = PackIconMaterialKind.SettingsOutline },
                 Label = "Settings",
                 ToolTip = "Settings",
-                //Tag = this.SettingsViewModel,
+                Tag = Ioc.Default.GetService<SettingsViewModel>(),
             };
            
+            this.MenuOptionItems.Add(pluginTab);
             this.MenuOptionItems.Add(settingsTab);
             
             OnMenuChanged(EventArgs.Empty);

@@ -50,7 +50,7 @@ namespace PscCloud.Shared.Settings
         public void SaveSettings()
         {
             // serialize JSON directly to a file
-            using (StreamWriter file = File.CreateText(this.SettingsFile))
+            using (StreamWriter file = File.CreateText(this.SettingsPath))
             {
                 JsonSerializer serializer = new JsonSerializer()
                 {

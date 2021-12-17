@@ -115,10 +115,6 @@
               "target": "Package",
               "version": "[2.1.2, )"
             },
-            "ReactiveUI": {
-              "target": "Package",
-              "version": "[13.2.10, )"
-            },
             "RestSharp": {
               "target": "Package",
               "version": "[106.13.0, )"

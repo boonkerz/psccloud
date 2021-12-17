@@ -10,6 +10,14 @@
 
 
 	<DockPanel>
-
+		<ListBox Items="{Binding Notes}">
+			<ListBox.ItemTemplate>
+				<DataTemplate>
+					<Border Background="Red" CornerRadius="4" Padding="4">
+						<TextBlock Text="{Binding Title}"/>
+					</Border>
+				</DataTemplate>
+			</ListBox.ItemTemplate>
+		</ListBox>
 	</DockPanel>
 </UserControl>

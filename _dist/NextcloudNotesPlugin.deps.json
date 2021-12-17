@@ -12,7 +12,6 @@
           "PluginContract": "1.0.0",
           "Prise": "2.1.2",
           "PscCloud": "1.0.0",
-          "ReactiveUI": "13.2.10",
           "RestSharp": "106.13.0"
         },
         "runtime": {

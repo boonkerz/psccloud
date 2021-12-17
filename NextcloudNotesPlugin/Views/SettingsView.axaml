@@ -3,13 +3,23 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-			 xmlns:i="clr-namespace:Avalonia.Xaml.Interactivity;assembly=Avalonia.Xaml.Interactivity"
-			 xmlns:ia="clr-namespace:Avalonia.Xaml.Interactions.Core;assembly=Avalonia.Xaml.Interactions"
-			xmlns:avalonia="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia"
-             x:Class="PscCloud.Plugin.Nextcloud.Notes.Views.SettingsView">
+             xmlns:vm="using:PscCloud.Plugin.Nextcloud.Notes.ViewModels"
+			 x:Class="PscCloud.Plugin.Nextcloud.Notes.Views.SettingsView">
+	<Design.DataContext>
+		<vm:SettingsViewModel/>
+	</Design.DataContext>
+	<StackPanel>
+				
+		<StackPanel Orientation="Vertical" Margin="0,5,0,0">
+			<TextBlock Text="Server URL" VerticalAlignment="Center"/>
+			<TextBox Text="{Binding Server}" Width="500"/>
+			<TextBlock Text="LoginName URL" VerticalAlignment="Center"/>
+			<TextBox Text="{Binding LoginName}" Width="500"/>
+			<TextBlock Text="AppPassword URL" VerticalAlignment="Center"/>
+			<TextBox Text="{Binding AppPassword}" Width="500"/>
+			
+			<Button Command="{Binding LoginAction}">Login</Button>
+		</StackPanel>
 
-
-	<DockPanel>
-		
-	</DockPanel>
+	</StackPanel>
 </Window>
