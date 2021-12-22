@@ -9,15 +9,21 @@
              x:Class="PscCloud.Plugin.Nextcloud.Notes.Views.NotesListView">
 
 
-	<DockPanel>
-		<ListBox Items="{Binding Notes}">
+	<DockPanel Margin="5">
+		<StackPanel Orientation="Horizontal" DockPanel.Dock="Top" Spacing="5" Margin="0 0 0 5 "><Button Command="{Binding OpenSettings}">Einstellungen</Button><Button Command="{Binding DoSync}">Do Sync!!</Button></StackPanel>
+		<ListBox Items="{Binding Notes}" DockPanel.Dock="Left" SelectedItem="{Binding SelectedNote, Mode=TwoWay}">
 			<ListBox.ItemTemplate>
 				<DataTemplate>
-					<Border Background="Red" CornerRadius="4" Padding="4">
+					<Border BorderBrush="black" BorderThickness="2" CornerRadius="2" Padding="4">
 						<TextBlock Text="{Binding Title}"/>
 					</Border>
 				</DataTemplate>
 			</ListBox.ItemTemplate>
 		</ListBox>
+			<ScrollViewer VerticalScrollBarVisibility="Auto"
+			              AllowAutoHide="True" DockPanel.Dock="Right">
+				<TextBox HorizontalAlignment="Stretch"
+				         VerticalAlignment="Stretch" AcceptsReturn="True" Text="{Binding SelectedNote.Content}" TextWrapping="Wrap"  />
+			</ScrollViewer>
 	</DockPanel>
 </UserControl>

@@ -55,8 +55,10 @@ namespace PscCloud.Views
                 pluginService.LoadPlugin(plugin);
             }
 
-            
             base.OnOpened(e);
+
+            var appService = Ioc.Default.GetService<AppService>();
+            appService.AppIsStarted();
         }
     }
 }

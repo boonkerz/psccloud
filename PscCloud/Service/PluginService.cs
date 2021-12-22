@@ -64,6 +64,7 @@ namespace PscCloud.Service
 
             var pluginLoader = Ioc.Default.GetService<IPluginLoader>();
             var menuService = Ioc.Default.GetService<MenuService>();
+            var appService = Ioc.Default.GetService<AppService>();
             var settingsService = Ioc.Default.GetService<SettingsManager>();
             
             var pluginAssemblies = await pluginLoader.FindPlugins<IAppPlugin>(getPluginPath());
@@ -76,6 +77,7 @@ namespace PscCloud.Service
                     context
                         .AddHostTypes(new[] {typeof(Application)})
                         .AddHostService<MenuService>(menuService)
+                        .AddHostService<AppService>(appService)
                         .AddHostService<SettingsManager>(settingsService)
                         ;
                 });

@@ -13,7 +13,7 @@ namespace PscCloud.Shared.Settings
         private string DataRoot => Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "PSC", "PscCloud");
 
         private string SettingsPath => Path.Combine(this.DataRoot, "settings.json");
-        
+
         public SettingsManager()
         {
             Directory.CreateDirectory(this.DataRoot);

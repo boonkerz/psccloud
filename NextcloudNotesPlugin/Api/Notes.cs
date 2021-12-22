@@ -13,23 +13,19 @@ namespace PscCloud.Plugin.Nextcloud.Notes.Api
 {
     public class Notes
     {
-
         
-        
-        
-        public List<Note> GetNotes(Settings settings)
+        async public Task<List<Note>> GetNotes(Settings settings)
         {
-
             var notes = new List<Note>();
             
             var client = new RestClient(settings.Server);
             var request = new RestRequest("index.php/apps/notes/api/v1/notes");
             client.Authenticator = new HttpBasicAuthenticator(settings.LoginName, settings.AppPassword);
 
-            var response = client.Get<List<Note>>(request);
-            if (response.StatusCode == HttpStatusCode.OK)
+            var response = client.ExecuteGetAsync<List<Note>>(request);
+            if (response.Result.StatusCode == HttpStatusCode.OK)
             {
-                notes = response.Data;
+                notes = response.Result.Data;
             }
 
             return notes;

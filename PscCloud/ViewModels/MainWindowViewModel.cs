@@ -22,7 +22,9 @@ namespace PscCloud.ViewModels
     {
 
         private SettingsManager SettingsManager { get; set; }
+        private AppService AppService { get; set; }
 
+        
         private AvaloniaList<HamburgerMenuItem> menuItems = new AvaloniaList<HamburgerMenuItem>();
         private AvaloniaList<HamburgerMenuItem> menuOptionItems = new AvaloniaList<HamburgerMenuItem>();
         private HamburgerMenuItem selectedItem;
@@ -49,7 +51,14 @@ namespace PscCloud.ViewModels
         public HamburgerMenuItem SelectedItem
         {
             get => this.selectedItem;
-            set => SetProperty(ref this.selectedItem, value);
+            set
+            {
+                if (value.Label is not null)
+                {
+                    this.SettingsManager.CoreSettings.ActiveMenuItem = value.Label;
+                }
+                SetProperty(ref this.selectedItem, value);
+            }
         }
 
         public bool IsRefreshing
@@ -76,14 +85,25 @@ namespace PscCloud.ViewModels
 
             this.menuService = Ioc.Default.GetService<MenuService>();
             this.SettingsManager = Ioc.Default.GetService<SettingsManager>();
-            //this.ServerService = Ioc.Default.GetService<ServerService>();
-            //this.ServerService.SyncCompleted += ServerService_SyncCompleted;
-            //this.ServerService.SyncStarted += ServerService_SyncStarted;
+            this.AppService = Ioc.Default.GetService<AppService>();
+            this.AppService.AppStartSyncing += ServerService_SyncStarted;
+            this.AppService.AppEndSyncing += ServerService_SyncCompleted;
             this.menuService.MenuChanged += delegate(object? sender, EventArgs args)
             {
                 this.MenuItems = menuService.MenuItems;
                 this.MenuOptionItems = menuService.MenuOptionItems;
-                this.SelectedItem = menuService.MenuOptionItems.Last();
+            };
+            
+            this.AppService.AppStarted += delegate(object? sender, EventArgs args)
+            {
+                if (!string.IsNullOrEmpty(this.SettingsManager.CoreSettings.ActiveMenuItem))
+                {
+                    this.SelectedItem = menuService.GetMenuOptionByLabel(this.SettingsManager.CoreSettings.ActiveMenuItem);
+                }
+                else
+                {
+                    this.SelectedItem = menuService.MenuOptionItems.Last();
+                }
             };
             
             this.InitializeClient();

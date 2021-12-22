@@ -27,6 +27,7 @@ namespace PscCloud
                 new ServiceCollection()
                     .AddSingleton<IUserInterfaceDispatchService, AvaloniaDispatcherService>()
                     .AddPrise()
+                    .AddSingleton<AppService>()
                     .AddSingleton<MenuService>(menuService)
                     .AddSingleton<PluginService>()
                     .AddSingleton<SettingsManager>(set)

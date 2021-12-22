@@ -17,7 +17,7 @@ namespace PscCloud.Service
         private AvaloniaList<HamburgerMenuItem> menuOptionItems = new AvaloniaList<HamburgerMenuItem>();
         
         public event EventHandler MenuChanged;
-        
+
         public AvaloniaList<HamburgerMenuItem> MenuItems
         {
             get => this.menuItems;
@@ -96,6 +96,26 @@ namespace PscCloud.Service
         protected virtual void OnMenuChanged(EventArgs e)
         {
             MenuChanged?.Invoke(this, e);
+        }
+
+        public HamburgerMenuItem GetMenuOptionByLabel(string coreSettingsActiveMenuItem)
+        {
+            foreach (var menuItem in this.menuItems)
+            {
+                if (menuItem.Label == coreSettingsActiveMenuItem)
+                {
+                    return menuItem;
+                }
+            }
+            foreach (var menuItem in this.menuOptionItems)
+            {
+                if (menuItem.Label == coreSettingsActiveMenuItem)
+                {
+                    return menuItem;
+                }
+            }
+
+            return null;
         }
     }
 }

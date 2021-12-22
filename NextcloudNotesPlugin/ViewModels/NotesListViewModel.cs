@@ -15,6 +15,7 @@ using Microsoft.Toolkit.Mvvm.DependencyInjection;
 using PscCloud.Plugin.Nextcloud.Notes.Api;
 using PscCloud.Plugin.Nextcloud.Notes.Api.Model.Notes;
 using PscCloud.Plugin.Nextcloud.Notes.Views;
+using PscCloud.Service;
 using PscCloud.Shared.Models.ViewModels;
 using PscCloud.Shared.Service;
 using PscCloud.Shared.Settings;
@@ -31,6 +32,14 @@ namespace PscCloud.Plugin.Nextcloud.Notes.ViewModels
         
         private Settings settings { get; set; }
 
+        public Note _selectedNote;
+
+        public Note SelectedNote
+        {
+            get => this._selectedNote;
+            set => SetProperty(ref this._selectedNote, value);
+        }
+        
         private readonly DispatcherTimer autoSaveTimer = new DispatcherTimer();
         public NotesListViewModel(SettingsManager settingsManager)
         {
@@ -51,15 +60,27 @@ namespace PscCloud.Plugin.Nextcloud.Notes.ViewModels
                 this.loadNotes();
             }
         }
-
-        private void loadNotes()
+        private void DoSync()
         {
+            this.loadNotes();
+        }
+        private void OpenSettings()
+        {
+            
+        }
+        async private void loadNotes()
+        {
+            this.Notes.Clear();
+            var appService = Ioc.Default.GetService<AppService>();
+            appService.AppIsStartSyncing();
             var api = new Api.Notes();
-            var notes = api.GetNotes(this.settings);
+            var notes = await api.GetNotes(this.settings);
             foreach (var note in notes)
             {
                 this.Notes.Add(note);
             }
+            appService.AppIsEndSyncing();
+            this.SelectedNote = this.Notes.First();
         }
 
         public UserControl GetViewControl()

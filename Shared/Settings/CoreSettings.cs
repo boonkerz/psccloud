@@ -14,6 +14,7 @@ namespace PscCloud.Shared.Settings
         public int ApplicationUpdateFrequencyMinutes { get; set; } = 60;
         
         public List<string> ActivatedPlugins { get; set; }
+        public string ActiveMenuItem { get; set; }
 
         public CoreSettings()
         {
