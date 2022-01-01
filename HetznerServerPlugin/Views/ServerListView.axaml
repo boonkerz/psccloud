@@ -17,12 +17,17 @@
 	</UserControl.Resources>
 
 	<Grid Name="Grid" RowDefinitions="Auto,*,Auto,Auto" ColumnDefinitions="*">
-
-		<StackPanel Grid.Row="0" Orientation="Horizontal" Margin="3" Spacing="3">
-			<Button Command="{Binding OnRefreshStatus}">Refresh Status</Button>
-			<Button Command="{Binding OnDockerPrune}">Docker Prune</Button>
-			<Button Command="{Binding OnDockerUpdate}">Docker Update</Button>
-		</StackPanel>
+		<DockPanel Grid.Row="0">
+			<StackPanel DockPanel.Dock="Left" Grid.Row="0" Orientation="Horizontal" Margin="3" Spacing="3">
+				<Button Command="{Binding OnRefreshStatus}">Refresh Status</Button>
+				<Button Command="{Binding OnDockerPrune}">Docker Prune</Button>
+				<Button Command="{Binding OnDockerUpdate}">Docker Update</Button>
+			</StackPanel>
+			<StackPanel DockPanel.Dock="Right" HorizontalAlignment="Right" Grid.Row="0" Orientation="Horizontal" Margin="3" Spacing="3">
+				<Button Command="{Binding OpenSettings}">Open Settings</Button>
+			</StackPanel>
+		</DockPanel>
+		
 		<DataGrid Grid.Row="1" Items="{Binding ServerService.ServerList}" SelectedItem="{Binding SelectedServer, Mode=TwoWay}" DoubleTapped="InputElement_OnDoubleTapped" IsReadOnly="True">
 			<DataGrid.Styles>
 				<Style Selector="DataGridCell.customClass">

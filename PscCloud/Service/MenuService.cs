@@ -37,7 +37,7 @@ namespace PscCloud.Service
         /// Gets or sets the currently selected Hamburger Menu Tab.
         /// </summary>
         
-        public void CreateMenuItemsRegular()
+        public void CreateMenu()
         {
             this.MenuItems.Clear();
             this.MenuOptionItems.Clear();
@@ -65,31 +65,6 @@ namespace PscCloud.Service
         public void AddMenuItem(HamburgerMenuItem item)
         {
             this.MenuItems.Add(item);
-            OnMenuChanged(EventArgs.Empty);
-        }
-        
-        public void CreateSettingsItemsRegular()
-        {
-            this.MenuItems.Clear();
-            this.MenuOptionItems.Clear();
-            var pluginTab = new HamburgerMenuItem()
-            {
-                Icon = new IconControl() { BindableKind = PackIconMaterialKind.PowerPlug },
-                Label = "Plugins",
-                ToolTip = "View Plugin Records",
-                Tag = Ioc.Default.GetService<PluginListViewModel>(),
-            };
-            var settingsTab = new HamburgerMenuItem()
-            {
-                Icon = new IconControl() { BindableKind = PackIconMaterialKind.SettingsOutline },
-                Label = "Settings",
-                ToolTip = "Settings",
-                Tag = Ioc.Default.GetService<SettingsViewModel>(),
-            };
-           
-            this.MenuOptionItems.Add(pluginTab);
-            this.MenuOptionItems.Add(settingsTab);
-            
             OnMenuChanged(EventArgs.Empty);
         }
 

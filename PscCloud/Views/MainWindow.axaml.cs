@@ -44,7 +44,7 @@ namespace PscCloud.Views
             base.OnClosing(e);
         }
 
-        protected override void OnOpened(EventArgs e)
+        async protected override void OnOpened(EventArgs e)
         {
 
             var pluginService = Ioc.Default.GetService<PluginService>();
@@ -57,8 +57,6 @@ namespace PscCloud.Views
 
             base.OnOpened(e);
 
-            var appService = Ioc.Default.GetService<AppService>();
-            appService.AppIsStarted();
         }
     }
 }

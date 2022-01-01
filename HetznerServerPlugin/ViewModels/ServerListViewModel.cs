@@ -73,6 +73,12 @@ namespace PscCloud.Plugin.HetznerServerPlugin.ViewModels
             ServerService.DockerPruneAllServer();
         }
 
+        private void OpenSettings()
+        {
+            var win = new SettingsView();
+            win.DataContext = new SettingsViewModel();
+            win.Show();
+        }
 
         public ServerListViewModel()
         {

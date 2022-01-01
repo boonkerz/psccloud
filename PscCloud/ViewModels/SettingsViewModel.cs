@@ -21,34 +21,6 @@ namespace PscCloud.ViewModels
 
         }
 
-        public String ApiToken
-        {
-            get
-            {
-                return this.SettingsManager.CoreSettings.ApiToken;
-            }
-
-            set
-            {
-                this.SettingsManager.CoreSettings.ApiToken = value;
-                this.SettingsManager.SaveSettings();
-            }
-        }
-
-        public String DNSApiToken
-        {
-            get
-            {
-                return this.SettingsManager.CoreSettings.DNSApiToken;
-            }
-
-            set
-            {
-                this.SettingsManager.CoreSettings.DNSApiToken = value;
-                this.SettingsManager.SaveSettings();
-            }
-        }
-
         public int ApplicationUpdateFrequencyMinutes
         {
             get
@@ -59,20 +31,6 @@ namespace PscCloud.ViewModels
             set
             {
                 this.SettingsManager.CoreSettings.ApplicationUpdateFrequencyMinutes = value;
-                this.SettingsManager.SaveSettings();
-            }
-        }
-
-        public String SSHFile
-        {
-            get
-            {
-                return this.SettingsManager.CoreSettings.SSHFile;
-            }
-
-            set
-            {
-                this.SettingsManager.CoreSettings.SSHFile = value;
                 this.SettingsManager.SaveSettings();
             }
         }

@@ -12,7 +12,7 @@ namespace PscCloud.Plugin.HetznerServerPlugin
     {
         public IServiceCollection Bootstrap(IServiceCollection services)
         {
-            services.AddTransient<ServerListViewModel>();
+           // services.AddTransient<ServerListViewModel>();
             return services;
         }
     }

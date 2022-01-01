@@ -33,6 +33,7 @@ namespace PscCloud.Plugin.Nextcloud.Notes.ViewModels
         private Settings settings { get; set; }
 
         public Note _selectedNote;
+        private bool isLoading = false;
 
         public Note SelectedNote
         {
@@ -57,19 +58,50 @@ namespace PscCloud.Plugin.Nextcloud.Notes.ViewModels
             }
             else
             {
-                this.loadNotes();
+                Task.Run(async () => await this.loadNotes());
             }
+            
+            autoSaveTimer.Tick += new EventHandler(reloadNodes);
+            autoSaveTimer.Interval = new TimeSpan(0, this.settingsManager.CoreSettings.ApplicationUpdateFrequencyMinutes, 0);
+            autoSaveTimer.Start();
         }
-        private void DoSync()
+        
+        private void reloadNodes(object sender, EventArgs e)
         {
-            this.loadNotes();
+            Task.Run(async () => await this.loadNotes());
+        }
+        
+        async private void DoSync()
+        {
+            await this.loadNotes();
+        } async private void DoSave()
+        {
+            await this.saveNote();
         }
         private void OpenSettings()
         {
-            
+            var win = new SettingsView();
+            win.DataContext = new SettingsViewModel();
+            win.Show();
         }
-        async private void loadNotes()
+        async private Task saveNote()
         {
+            var appService = Ioc.Default.GetService<AppService>();
+            appService.AppIsStartSyncing();
+            var api = new Api.Notes();
+            var saved = await api.SaveNote(this.settings, this.SelectedNote);
+            appService.AppIsEndSyncing();
+        }
+        async private Task loadNotes()
+        {
+            if (isLoading) return;
+            isLoading = true;
+            string selectedNodeId = null;
+            if (SelectedNote != null)
+            {
+                selectedNodeId = SelectedNote.Id;
+            }
+
             this.Notes.Clear();
             var appService = Ioc.Default.GetService<AppService>();
             appService.AppIsStartSyncing();
@@ -80,7 +112,22 @@ namespace PscCloud.Plugin.Nextcloud.Notes.ViewModels
                 this.Notes.Add(note);
             }
             appService.AppIsEndSyncing();
-            this.SelectedNote = this.Notes.First();
+            if (selectedNodeId != null)
+            {
+                foreach (var node in this.Notes)
+                {
+                    if (selectedNodeId == node.Id)
+                    {
+                        this.SelectedNote = node;
+                    } 
+                }
+            }
+            else
+            {
+                this.SelectedNote = this.Notes.First();    
+            }
+            
+            isLoading = false;
         }
 
         public UserControl GetViewControl()

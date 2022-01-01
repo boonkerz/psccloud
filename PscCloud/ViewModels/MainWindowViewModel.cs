@@ -98,7 +98,11 @@ namespace PscCloud.ViewModels
             {
                 if (!string.IsNullOrEmpty(this.SettingsManager.CoreSettings.ActiveMenuItem))
                 {
-                    this.SelectedItem = menuService.GetMenuOptionByLabel(this.SettingsManager.CoreSettings.ActiveMenuItem);
+                    var item = menuService.GetMenuOptionByLabel(this.SettingsManager.CoreSettings.ActiveMenuItem);
+                    if (item != null)
+                    {
+                        this.SelectedItem = item;
+                    }
                 }
                 else
                 {
@@ -125,15 +129,7 @@ namespace PscCloud.ViewModels
         {
             this.SettingsViewModel = Ioc.Default.GetService<SettingsViewModel>();
 
-            if (string.IsNullOrEmpty(this.SettingsManager.CoreSettings.ApiToken))
-            {
-                this.menuService.CreateSettingsItemsRegular();
-            }
-            else
-            {
-                this.PluginListViewModel = Ioc.Default.GetService<PluginListViewModel>();
-                this.menuService.CreateMenuItemsRegular();
-            }
+            this.menuService.CreateMenu();
             
         }
         

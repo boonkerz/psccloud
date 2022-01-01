@@ -10,7 +10,16 @@
 
 
 	<DockPanel Margin="5">
-		<StackPanel Orientation="Horizontal" DockPanel.Dock="Top" Spacing="5" Margin="0 0 0 5 "><Button Command="{Binding OpenSettings}">Einstellungen</Button><Button Command="{Binding DoSync}">Do Sync!!</Button></StackPanel>
+		<DockPanel DockPanel.Dock="Top" Margin="0 0 0 5 ">
+			<StackPanel Orientation="Horizontal" DockPanel.Dock="Left" Spacing="5" >
+				<Button Command="{Binding DoSync}">Do Sync!!</Button>
+				<Button Command="{Binding DoSave}">Save Note</Button>
+			</StackPanel>
+			<StackPanel Orientation="Horizontal" DockPanel.Dock="Right" HorizontalAlignment="Right">
+				<Button Command="{Binding OpenSettings}">Open Settings</Button>
+			</StackPanel>
+		</DockPanel>
+		
 		<ListBox Items="{Binding Notes}" DockPanel.Dock="Left" SelectedItem="{Binding SelectedNote, Mode=TwoWay}">
 			<ListBox.ItemTemplate>
 				<DataTemplate>
@@ -20,10 +29,14 @@
 				</DataTemplate>
 			</ListBox.ItemTemplate>
 		</ListBox>
-			<ScrollViewer VerticalScrollBarVisibility="Auto"
-			              AllowAutoHide="True" DockPanel.Dock="Right">
+		<ScrollViewer VerticalScrollBarVisibility="Auto"
+		              AllowAutoHide="True" DockPanel.Dock="Right">
+			<StackPanel Orientation="Vertical">
 				<TextBox HorizontalAlignment="Stretch"
-				         VerticalAlignment="Stretch" AcceptsReturn="True" Text="{Binding SelectedNote.Content}" TextWrapping="Wrap"  />
-			</ScrollViewer>
+					AcceptsReturn="True" Text="{Binding SelectedNote.Title}"  />
+				<TextBox HorizontalAlignment="Stretch"
+					VerticalAlignment="Stretch" AcceptsReturn="True" Text="{Binding SelectedNote.Content}" TextWrapping="Wrap"  />
+			</StackPanel>
+		</ScrollViewer>
 	</DockPanel>
 </UserControl>

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using System.Threading.Tasks;
 using Avalonia;
 using Avalonia.Collections;
 using DynamicData;
@@ -16,22 +17,18 @@ namespace PscCloud.Service
 {
     public class PluginService
     {
+        private List<string> toLoadPlugins = new List<string>();
         private Dictionary<string, IAppPlugin> loadedPlugins = new Dictionary<string, IAppPlugin>();
         private Dictionary<string, string> foundPlugins = new Dictionary<string, string>();
         
         public PluginService()
         {
             this.scanPlugins();
-
-
         }
-
-
         public Dictionary<string, string> GetPlugins()
         {
             return this.foundPlugins;
         }
-
         async private void scanPlugins()
         {
             var pluginLoader = Ioc.Default.GetService<IPluginLoader>();
@@ -46,7 +43,6 @@ namespace PscCloud.Service
                 this.foundPlugins.Add(Path.GetFileNameWithoutExtension(pluginScanResult.AssemblyName), pluginScanResult.AssemblyPath);
             }
         }
-        
         private string getPluginPath()
         {
             var pathToThisProgram = Assembly.GetExecutingAssembly() // this assembly location (/bin/Debug/netcoreapp3.1)
@@ -54,13 +50,13 @@ namespace PscCloud.Service
             var pathToExecutingDir = Path.GetDirectoryName(pathToThisProgram);
             return Path.GetFullPath(Path.Combine(pathToExecutingDir, "../../../../_dist"));
         }
-
         async public void LoadPlugin(string pluginName)
         {
             if(this.loadedPlugins.ContainsKey(pluginName))
             {
                 return;
             }
+            this.toLoadPlugins.Add(pluginName);
 
             var pluginLoader = Ioc.Default.GetService<IPluginLoader>();
             var menuService = Ioc.Default.GetService<MenuService>();
@@ -87,8 +83,10 @@ namespace PscCloud.Service
                 {
                     loadedPlugins.Add(plugin.GetName(), plugin);
                     plugin.addMenu();
+                    appService.AppIsStarted();
                 }
             }
         }
+
     }
 }

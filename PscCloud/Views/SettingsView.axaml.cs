@@ -11,10 +11,6 @@ namespace PscCloud.Views
         {
             InitializeComponent();
 
-            this.FindControl<Button>("OpenFile").Click += delegate
-            {
-                this.OpenFileDialog();  
-            };
         }
 
         private void InitializeComponent()
@@ -22,19 +18,6 @@ namespace PscCloud.Views
             AvaloniaXamlLoader.Load(this);
         }
 
-        async protected void OpenFileDialog()
-        {
-            var dialog = new OpenFileDialog()
-            {
-                Title = "Open file"
-            };
-
-            string[] result = await dialog.ShowAsync((Window)this.VisualRoot);
-
-            if (result.Length > 0)
-            {
-                ((SettingsViewModel)this.DataContext).SSHFile = result[0];
-            }
-        }
+       
     }
 }

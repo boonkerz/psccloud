@@ -11,6 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Toolkit.Mvvm.DependencyInjection;
 using PscCloud.Plugin.HetznerServerPlugin.Models;
+using PscCloud.Service;
 using PscCloud.Shared.Service;
 using PscCloud.Shared.Settings;
 
@@ -22,34 +23,38 @@ namespace PscCloud.Plugin.HetznerServerPlugin.Service
 
         public AvaloniaList<Server> ServerList { get; set; }
 
-        public SettingsManager settings;
+        private SettingsManager settingsManager;
+        private Settings settings;
 
         private readonly DispatcherTimer autoSaveTimer = new DispatcherTimer();
 
         private static readonly HttpClient httpClient = new HttpClient();
 
-        public event EventHandler SyncStarted;
-        public event EventHandler SyncCompleted;
         private bool isOnRefreshStatus = false;
         private bool isOnDockerPrune = false;
 
         public ServerService()
         {
+            this.settings = new Settings();
         }
 
         public void Init()
         {
-            settings = Ioc.Default.GetService<SettingsManager>();
-            ServerList = new AvaloniaList<Server>();
-            lkcode.hetznercloudapi.Core.ApiCore.ApiToken = settings.CoreSettings.ApiToken;
+            this.settingsManager = Ioc.Default.GetService<SettingsManager>();
+            
+            this.settingsManager.LoadPluginSettings("HetznerServerPlugin", this.settings);
 
-            autoSaveTimer.Tick += new EventHandler(reloadServerStatus);
-            autoSaveTimer.Interval = new TimeSpan(0, settings.CoreSettings.ApplicationUpdateFrequencyMinutes, 0);
-            autoSaveTimer.Start();
+            if (!string.IsNullOrEmpty(this.settings.ApiToken))
+            {
+                ServerList = new AvaloniaList<Server>();
+                lkcode.hetznercloudapi.Core.ApiCore.ApiToken = this.settings.ApiToken;
 
-            Task.Run(async () => await this.reloadServer());
+                autoSaveTimer.Tick += new EventHandler(reloadServerStatus);
+                autoSaveTimer.Interval = new TimeSpan(0, this.settingsManager.CoreSettings.ApplicationUpdateFrequencyMinutes, 0);
+                autoSaveTimer.Start();
 
-            this.reloadServer();
+                Task.Run(async () => await this.reloadServer());
+            }
         }
 
         public void RefreshStatus()
@@ -73,19 +78,10 @@ namespace PscCloud.Plugin.HetznerServerPlugin.Service
             Task.Run(async () => await this.reloadServerStatus());
         }
 
-        protected virtual void OnSyncStarted(EventArgs e)
-        {
-            SyncStarted?.Invoke(this, e);
-        }
-
-        protected virtual void OnSyncCompleted(EventArgs e)
-        {
-            SyncCompleted?.Invoke(this, e);
-        }
-
         private async Task reloadServer()
         {
-            OnSyncStarted(EventArgs.Empty); //No event data
+            var appService = Ioc.Default.GetService<AppService>();
+            appService.AppIsStartSyncing();
             var servers = await lkcode.hetznercloudapi.Api.Server.GetAsync(1);
 
             foreach (lkcode.hetznercloudapi.Api.Server server in servers)
@@ -104,11 +100,12 @@ namespace PscCloud.Plugin.HetznerServerPlugin.Service
                 {
                     ServerList.Add(serv);
                 });
-
+                appService.AppIsEndSyncing();  
             }
 
             if (servers.Capacity > 25)
             {
+                appService.AppIsStartSyncing();
                 servers = await lkcode.hetznercloudapi.Api.Server.GetAsync(2);
 
                 foreach (lkcode.hetznercloudapi.Api.Server server in servers)
@@ -127,10 +124,9 @@ namespace PscCloud.Plugin.HetznerServerPlugin.Service
                     {
                         ServerList.Add(serv);
                     });
-
                 }
+                appService.AppIsEndSyncing();   
             }
-            OnSyncCompleted(EventArgs.Empty); //No event data
 
             Task.Run(async () => await this.reloadServerStatus());
 
@@ -139,7 +135,8 @@ namespace PscCloud.Plugin.HetznerServerPlugin.Service
         private async Task reloadServerStatus()
         {
             this.isOnRefreshStatus = true;
-            OnSyncStarted(EventArgs.Empty); //No event data
+            var appService = Ioc.Default.GetService<AppService>();
+            appService.AppIsStartSyncing();
 
             var uiDispatcher = Ioc.Default.GetService<IUserInterfaceDispatchService>();
 
@@ -155,7 +152,7 @@ namespace PscCloud.Plugin.HetznerServerPlugin.Service
 
                 var connectionInfo = new ConnectionInfo(serv.Ip4,
                                             "root",
-                                            new PrivateKeyAuthenticationMethod("root", new PrivateKeyFile(settings.CoreSettings.SSHFile)));
+                                            new PrivateKeyAuthenticationMethod("root", new PrivateKeyFile(this.settings.SSHFile)));
                 using (var client = new SshClient(connectionInfo))
                 {
                     try
@@ -283,7 +280,7 @@ namespace PscCloud.Plugin.HetznerServerPlugin.Service
                 this.autoSaveTimer.Start();
             });
 
-            OnSyncCompleted(EventArgs.Empty); //No event data
+            appService.AppIsEndSyncing();
             this.isOnRefreshStatus = false;
         }
 
@@ -297,8 +294,7 @@ namespace PscCloud.Plugin.HetznerServerPlugin.Service
         private async Task dockerPruneAllServer()
         {
             this.isOnDockerPrune = true;
-            OnSyncStarted(EventArgs.Empty); //No event data
-
+            
             var uiDispatcher = Ioc.Default.GetService<IUserInterfaceDispatchService>();
 
             await uiDispatcher.InvokeAsync(() =>
@@ -313,7 +309,7 @@ namespace PscCloud.Plugin.HetznerServerPlugin.Service
 
                 var connectionInfo = new ConnectionInfo(serv.Ip4,
                                             "root",
-                                            new PrivateKeyAuthenticationMethod("root", new PrivateKeyFile(settings.CoreSettings.SSHFile)));
+                                            new PrivateKeyAuthenticationMethod("root", new PrivateKeyFile(this.settings.SSHFile)));
                 using (var client = new SshClient(connectionInfo))
                 {
                     try
@@ -354,7 +350,7 @@ namespace PscCloud.Plugin.HetznerServerPlugin.Service
             });
 
             this.isOnDockerPrune = false;
-            OnSyncCompleted(EventArgs.Empty); //No event data
+            
         }
     }
 }

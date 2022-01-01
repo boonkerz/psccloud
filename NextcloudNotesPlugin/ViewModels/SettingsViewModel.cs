@@ -19,6 +19,22 @@ namespace PscCloud.Plugin.Nextcloud.Notes.ViewModels
         public SettingsViewModel()
         {
             loginApi.LoginFinished += LoginApiOnLoginFinished;
+
+            this.loadData();
+        }
+
+        private void loadData()
+        {
+            var settings = new Model.Settings();
+            var settingsManager = Ioc.Default.GetService<SettingsManager>();
+            settingsManager.LoadPluginSettings("NextcloudNotesPlugin", settings);
+
+            if (!string.IsNullOrEmpty(settings.Server))
+            {
+                this.Server = settings.Server;
+                this.LoginName = settings.LoginName;
+                this.AppPassword = settings.AppPassword;
+            }
         }
 
         private void LoginApiOnLoginFinished(object? sender, EventPollResponse e)

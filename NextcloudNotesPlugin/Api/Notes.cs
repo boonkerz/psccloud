@@ -22,15 +22,29 @@ namespace PscCloud.Plugin.Nextcloud.Notes.Api
             var request = new RestRequest("index.php/apps/notes/api/v1/notes");
             client.Authenticator = new HttpBasicAuthenticator(settings.LoginName, settings.AppPassword);
 
-            var response = client.ExecuteGetAsync<List<Note>>(request);
-            if (response.Result.StatusCode == HttpStatusCode.OK)
+            var response = await client.ExecuteGetAsync<List<Note>>(request);
+            if (response.StatusCode == HttpStatusCode.OK)
             {
-                notes = response.Result.Data;
+                notes = response.Data;
             }
 
             return notes;
         }
 
+        async public Task<bool> SaveNote(Settings settings, Note note)
+        {
+            var client = new RestClient(settings.Server);
+            client.Authenticator = new HttpBasicAuthenticator(settings.LoginName, settings.AppPassword);
+            var request = new RestRequest("index.php/apps/notes/api/v1/notes/" + note.Id, Method.PUT);
+            request.AddHeader("If-Match", "\"" + note.etag + "\"");
+            request.AddJsonBody(new { title = note.Title, content = note.Content});
+            var response = await client.ExecuteAsync<Note>(request);
+            if (response.StatusCode == HttpStatusCode.OK)
+            {
+                return true;
+            }
 
+            return false;
+        }
     }
 }
