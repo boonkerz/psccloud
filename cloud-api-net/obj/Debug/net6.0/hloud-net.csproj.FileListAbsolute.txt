@@ -1,0 +1,13 @@
+/home/thomas/projekte/PscCloud/cloud-api-net/bin/Debug/net6.0/hloud-net.deps.json
+/home/thomas/projekte/PscCloud/cloud-api-net/bin/Debug/net6.0/hloud-net.dll
+/home/thomas/projekte/PscCloud/cloud-api-net/bin/Debug/net6.0/ref/hloud-net.dll
+/home/thomas/projekte/PscCloud/cloud-api-net/bin/Debug/net6.0/hloud-net.pdb
+/home/thomas/projekte/PscCloud/cloud-api-net/bin/Debug/net6.0/hloud-net.xml
+/home/thomas/projekte/PscCloud/cloud-api-net/obj/Debug/net6.0/hloud-net.csproj.AssemblyReference.cache
+/home/thomas/projekte/PscCloud/cloud-api-net/obj/Debug/net6.0/hloud-net.GeneratedMSBuildEditorConfig.editorconfig
+/home/thomas/projekte/PscCloud/cloud-api-net/obj/Debug/net6.0/hloud-net.AssemblyInfoInputs.cache
+/home/thomas/projekte/PscCloud/cloud-api-net/obj/Debug/net6.0/hloud-net.AssemblyInfo.cs
+/home/thomas/projekte/PscCloud/cloud-api-net/obj/Debug/net6.0/hloud-net.csproj.CoreCompileInputs.cache
+/home/thomas/projekte/PscCloud/cloud-api-net/obj/Debug/net6.0/hloud-net.dll
+/home/thomas/projekte/PscCloud/cloud-api-net/obj/Debug/net6.0/ref/hloud-net.dll
+/home/thomas/projekte/PscCloud/cloud-api-net/obj/Debug/net6.0/hloud-net.pdb

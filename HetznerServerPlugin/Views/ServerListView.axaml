@@ -16,7 +16,7 @@
 		<converter:DateTimeConverter x:Key="DateTimeConverter"/>
 	</UserControl.Resources>
 
-	<Grid Name="Grid" RowDefinitions="Auto,*,Auto,Auto" ColumnDefinitions="*">
+	<Grid Name="Grid" RowDefinitions="Auto,*,Auto,*" ColumnDefinitions="*">
 		<DockPanel Grid.Row="0">
 			<StackPanel DockPanel.Dock="Left" Grid.Row="0" Orientation="Horizontal" Margin="3" Spacing="3">
 				<Button Command="{Binding OnRefreshStatus}">Refresh Status</Button>
@@ -92,12 +92,12 @@
 									Width="*"
 									/>
 
-				<DataGridTextColumn Header="Root Dir Belegung"
+				<DataGridTextColumn Header="/"
 									Binding="{Binding RootDirUsed}"
 									Width="*"
 									/>
 
-				<DataGridTextColumn Header="Data Dir Belegung"
+				<DataGridTextColumn Header="/data"
 									Binding="{Binding DataDirUsed}"
 									Width="*"
 									/>
@@ -105,12 +105,12 @@
 		</DataGrid>
 		<GridSplitter Name="ResultsSplitter" Grid.Row="2"  IsVisible="True" VerticalAlignment="Center" HorizontalAlignment="Stretch"></GridSplitter>
 
-		<TabControl Name="Results" Grid.Row="3" IsVisible="True" Margin="4" Items="{Binding TabViewControlModel.TabItems}" SelectedItem="{Binding TabViewControlModel.SelectedTabServer, Mode=TwoWay}">
+		<TabControl Name="Results" Grid.Row="3" IsVisible="True" Margin="4" Items="{Binding TabViewControlModel.TabItems}" SelectedItem="{Binding TabViewControlModel.SelectedTabServer}">
 			<TabControl.ItemTemplate>
 				<DataTemplate>
 					<StackPanel Orientation="Horizontal">
-						<TextBlock Text="{Binding Header}" />
-						<Button Command="{Binding ElementName=ServerList, Path=DataContext.TabViewControlModel.OnCloseTab}">
+						<TextBlock Text="{Binding ServerItem.Name}"/>
+						<Button Command="{Binding ElementName=ServerList, Path=DataContext.TabViewControlModel.OnCloseTab}" CommandParameter="{Binding ServerItem.Id}" Margin="10 0 10 0">
 							<avalonia:MaterialIcon Kind="Close"></avalonia:MaterialIcon>
 						</Button>
 					</StackPanel>
@@ -118,9 +118,9 @@
 			</TabControl.ItemTemplate>
 			<TabControl.ContentTemplate>
 				<DataTemplate>
-					<DockPanel LastChildFill="True">
-						<TextBlock Text="{Binding ServerItem.Name}" />
-										
+					<StackPanel Orientation="Vertical">
+						<TextBox IsReadOnly="True" Text="{Binding ServerItem.Name}" />
+						<TextBox IsReadOnly="True" Text="{Binding ServerItem.Ip4}" />
 						<DataGrid Name="Domains" Items="{Binding ServerItem.Domains}"  IsReadOnly="True">
 							<DataGrid.Columns>
 								<DataGridTextColumn Header="Name"
@@ -129,7 +129,7 @@
 							</DataGrid.Columns>
 						</DataGrid>
 						
-					</DockPanel>
+					</StackPanel>
 					
 				</DataTemplate>
 			</TabControl.ContentTemplate>

@@ -93,8 +93,7 @@ namespace PscCloud.Plugin.HetznerServerPlugin.ViewModels
             var uiDispatcher = Ioc.Default.GetService<IUserInterfaceDispatchService>();
             uiDispatcher.InvokeAsync(() =>
             {
-                this.TabViewControlModel.TabItems.Add(tabItem);
-                this.TabViewControlModel.SelectedTabServer = tabItem;
+                this.TabViewControlModel.AddTab(tabItem);
             });
         }
 

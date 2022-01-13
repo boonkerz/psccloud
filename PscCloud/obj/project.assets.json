@@ -9176,13 +9176,15 @@
       "outputPath": "/home/thomas/projekte/PscCloud/PscCloud/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
+        "/home/thomas/projekte/PscCloud/PscCloud/nuget.config",
         "/home/thomas/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
       ],
       "sources": {
-        "https://api.nuget.org/v3/index.json": {}
+        "https://api.nuget.org/v3/index.json": {},
+        "https://www.myget.org/F/avalonia-ci/api/v2": {}
       },
       "frameworks": {
         "net6.0": {
