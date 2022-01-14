@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "5qGO78vnK9b3/5fAU35WPli39Z8Spz/tizhX7A2fFwEyq1rbCbDyDNurm7rnR3jQbP9IG9SAN9AotHkL66N1Xw==",
+  "dgSpecHash": "WXrP4ECPfJmLBJyQ8sxQFB9sXbTS7eqaQ9xUBZM7sd/1V/rfO4sYb+2O/IrYbZK2sPhZr0YYSNZAi24/oxUFzQ==",
   "success": true,
   "projectFilePath": "/home/thomas/projekte/PscCloud/HetznerServerPlugin/HetznerServerPlugin.csproj",
   "expectedPackageFiles": [

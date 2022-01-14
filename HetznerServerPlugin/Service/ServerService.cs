@@ -82,31 +82,12 @@ namespace PscCloud.Plugin.HetznerServerPlugin.Service
         {
             var appService = Ioc.Default.GetService<AppService>();
             appService.AppIsStartSyncing();
-            var servers = await lkcode.hetznercloudapi.Api.Server.GetAsync(1);
+            
+            var i = 1;
+            
+            var servers = await lkcode.hetznercloudapi.Api.Server.GetAsync(i);
 
-            foreach (lkcode.hetznercloudapi.Api.Server server in servers)
-            {
-                var serv = new Server();
-                serv.Name = server.Name;
-                serv.Id = server.Id;
-                serv.Status = server.Status;
-                serv.Created = server.Created;
-                serv.Ip4 = server.Network.Ipv4.Ip.ToString();
-                serv.Ip6 = server.Network.Ipv6.Ip.ToString();
-
-
-                var uiDispatcher = Ioc.Default.GetService<IUserInterfaceDispatchService>();
-                await uiDispatcher.InvokeAsync(() =>
-                {
-                    ServerList.Add(serv);
-                });
-                appService.AppIsEndSyncing();  
-            }
-
-            if (servers.Capacity > 25)
-            {
-                appService.AppIsStartSyncing();
-                servers = await lkcode.hetznercloudapi.Api.Server.GetAsync(2);
+            while(true) {
 
                 foreach (lkcode.hetznercloudapi.Api.Server server in servers)
                 {
@@ -124,9 +105,20 @@ namespace PscCloud.Plugin.HetznerServerPlugin.Service
                     {
                         ServerList.Add(serv);
                     });
+                    appService.AppIsEndSyncing();  
                 }
-                appService.AppIsEndSyncing();   
+
+                i++;
+
+                if(servers.Capacity/i < 15) {
+                    break;
+                }
+
+                servers = await lkcode.hetznercloudapi.Api.Server.GetAsync(i);
+
             }
+
+            appService.AppIsEndSyncing();   
 
             Task.Run(async () => await this.reloadServerStatus());
 
