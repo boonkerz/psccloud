@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "2/u/SbfwwN1UmpheUfT5kGowsJiwTMmzNH42sVnpvOX4mn9tJAxEwY2FMSRjUSiTFEaYLHkLHhiNqT9r464OWA==",
+  "dgSpecHash": "sIzskPDY8fil3rEm8xiNkfhQ/m0kf9ISZ1yVXLkCeMERwD0qLpA2ezmJqzVbjW6v5xyLmJW7JZ82JRa2yrfhHA==",
   "success": true,
   "projectFilePath": "/home/thomas/projekte/PscCloud/HetznerVolumePlugin/HetznerVolumePlugin.csproj",
   "expectedPackageFiles": [

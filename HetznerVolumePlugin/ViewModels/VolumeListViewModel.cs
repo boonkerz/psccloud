@@ -30,7 +30,7 @@ namespace PscCloud.Plugin.HetznerVolumePlugin.ViewModels
         public VolumeListViewModel(SettingsManager settingsManager)
         {
             settings = settingsManager;
-            lkcode.hetznercloudapi.Core.ApiCore.ApiToken = settings.CoreSettings.ApiToken;
+            //lkcode.hetznercloudapi.Core.ApiCore.ApiToken = settings.CoreSettings.ApiToken;
             VolumeList = new AvaloniaList<Volume>();
 
             Task.Run(async () => await this.reloadVolumes());

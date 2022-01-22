@@ -14,13 +14,42 @@
             "problemMatcher": "$msCompile"
         },
         {
-            "label": "publish",
+            "label": "build_notes",
             "command": "dotnet",
             "type": "process",
             "args": [
-                "publish",
-                "${workspaceFolder}/PscCloud/PscCloud.csproj",
+                "build",
+                "${workspaceFolder}/NextcloudNotesPlugin/NextcloudNotesPlugin.csproj",
                 "/property:GenerateFullPaths=true",
+                "/consoleloggerparameters:NoSummary"
+            ],
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "build_server",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "build",
+                "${workspaceFolder}/HetznerServerPlugin/HetznerServerPlugin.csproj",
+                "/property:GenerateFullPaths=true",
+                "/consoleloggerparameters:NoSummary"
+            ],
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "build_notes_server",
+            "dependsOn": [
+                "build",
+                "build_notes"
+            ]
+        },
+        {
+            "label": "clean",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "clean",
                 "/consoleloggerparameters:NoSummary"
             ],
             "problemMatcher": "$msCompile"

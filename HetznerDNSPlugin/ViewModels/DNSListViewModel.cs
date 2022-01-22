@@ -39,7 +39,7 @@ namespace PscCloud.Plugin.HetznerDNSPlugin.ViewModels
 
         private async Task reloadVolumes()
         {
-            var client = new HetznerDnsClient(settings.CoreSettings.DNSApiToken);
+            var client = new HetznerDnsClient("");
             Nager.HetznerDns.Models.RecordResponse? response = await client.GetRecordsAsync("tiBfyNXnywMQ6rheboNtCF");
 
             foreach (Record record in response.Records)

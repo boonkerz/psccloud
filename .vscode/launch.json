@@ -9,7 +9,7 @@
             "name": "Launch PscCloud mit Notes und Server",
             "type": "coreclr",
             "request": "launch",
-            "preLaunchTask": "build",
+            "preLaunchTask": "build_notes_server",
             // If you have changed target frameworks, make sure to update the program path.
             "program": "${workspaceFolder}/PscCloud/bin/Debug/net6.0/PscCloud.dll",
             "args": [],
