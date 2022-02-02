@@ -8,8 +8,6 @@
             "args": [
                 "build",
                 "${workspaceFolder}/PscCloud/PscCloud.csproj",
-                "/property:GenerateFullPaths=true",
-                "/consoleloggerparameters:NoSummary"
             ],
             "problemMatcher": "$msCompile"
         },
@@ -18,10 +16,10 @@
             "command": "dotnet",
             "type": "process",
             "args": [
-                "build",
+                "publish",
                 "${workspaceFolder}/NextcloudNotesPlugin/NextcloudNotesPlugin.csproj",
-                "/property:GenerateFullPaths=true",
-                "/consoleloggerparameters:NoSummary"
+                "/p:OutputPath=${workspaceFolder}/_dist",
+                "/p:OutDirWasSpecified=true"
             ],
             "problemMatcher": "$msCompile"
         },
@@ -30,19 +28,26 @@
             "command": "dotnet",
             "type": "process",
             "args": [
-                "build",
+                "publish",
                 "${workspaceFolder}/HetznerServerPlugin/HetznerServerPlugin.csproj",
-                "/property:GenerateFullPaths=true",
-                "/consoleloggerparameters:NoSummary"
+                "/p:OutputPath=${workspaceFolder}/_dist"
             ],
             "problemMatcher": "$msCompile"
         },
         {
             "label": "build_notes_server",
             "dependsOn": [
+                "build_notes",
+                "build_server",
                 "build",
-                "build_notes"
-            ]
+                "clean_dist"
+            ],
+            "dependsOrder": "sequence"
+        },
+        {
+            "label": "clean_dist",
+            "type": "shell",
+            "command": "${workspaceFolder}/clean.sh",
         },
         {
             "label": "clean",

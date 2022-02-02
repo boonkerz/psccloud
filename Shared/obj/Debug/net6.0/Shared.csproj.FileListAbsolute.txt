@@ -1,0 +1,4 @@
+/home/thomas/projekte/PscCloud/_dist/Shared.deps.json
+/home/thomas/projekte/PscCloud/_dist/Shared.dll
+/home/thomas/projekte/PscCloud/_dist/ref/Shared.dll
+/home/thomas/projekte/PscCloud/_dist/Shared.pdb

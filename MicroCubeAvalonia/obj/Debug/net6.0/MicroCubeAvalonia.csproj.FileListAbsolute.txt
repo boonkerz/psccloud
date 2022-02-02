@@ -1,0 +1,4 @@
+/home/thomas/projekte/PscCloud/_dist/MicroCubeAvalonia.deps.json
+/home/thomas/projekte/PscCloud/_dist/MicroCubeAvalonia.dll
+/home/thomas/projekte/PscCloud/_dist/ref/MicroCubeAvalonia.dll
+/home/thomas/projekte/PscCloud/_dist/MicroCubeAvalonia.pdb

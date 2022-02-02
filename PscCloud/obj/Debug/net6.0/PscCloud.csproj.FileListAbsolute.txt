@@ -1,0 +1,6 @@
+/home/thomas/projekte/PscCloud/_dist/PscCloud
+/home/thomas/projekte/PscCloud/_dist/PscCloud.deps.json
+/home/thomas/projekte/PscCloud/_dist/PscCloud.runtimeconfig.json
+/home/thomas/projekte/PscCloud/_dist/PscCloud.dll
+/home/thomas/projekte/PscCloud/_dist/ref/PscCloud.dll
+/home/thomas/projekte/PscCloud/_dist/PscCloud.pdb

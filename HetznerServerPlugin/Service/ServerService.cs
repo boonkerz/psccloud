@@ -83,11 +83,11 @@ namespace PscCloud.Plugin.HetznerServerPlugin.Service
             var appService = Ioc.Default.GetService<AppService>();
             appService.AppIsStartSyncing();
             
-            var i = 1;
-            
-            var servers = await lkcode.hetznercloudapi.Api.Server.GetAsync(i);
+            var servers = await lkcode.hetznercloudapi.Api.Server.GetAsync(1);
 
-            while(true) {
+            for(int i = 1; i <= lkcode.hetznercloudapi.Api.Server.MaxPages; i++) {
+
+                servers = await lkcode.hetznercloudapi.Api.Server.GetAsync(i);
 
                 foreach (lkcode.hetznercloudapi.Api.Server server in servers)
                 {
@@ -108,13 +108,7 @@ namespace PscCloud.Plugin.HetznerServerPlugin.Service
                     appService.AppIsEndSyncing();  
                 }
 
-                i++;
-
-                if(servers.Capacity/i < 15) {
-                    break;
-                }
-
-                servers = await lkcode.hetznercloudapi.Api.Server.GetAsync(i);
+                
 
             }
 

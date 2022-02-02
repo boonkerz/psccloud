@@ -1,0 +1,5 @@
+/home/thomas/projekte/PscCloud/_dist/hloud-net.deps.json
+/home/thomas/projekte/PscCloud/_dist/hloud-net.dll
+/home/thomas/projekte/PscCloud/_dist/ref/hloud-net.dll
+/home/thomas/projekte/PscCloud/_dist/hloud-net.pdb
+/home/thomas/projekte/PscCloud/_dist/hloud-net.xml

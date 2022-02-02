@@ -1,0 +1,4 @@
+/home/thomas/projekte/PscCloud/_dist/PluginContract.deps.json
+/home/thomas/projekte/PscCloud/_dist/PluginContract.dll
+/home/thomas/projekte/PscCloud/_dist/ref/PluginContract.dll
+/home/thomas/projekte/PscCloud/_dist/PluginContract.pdb
